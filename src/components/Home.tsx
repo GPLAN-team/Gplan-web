@@ -5,12 +5,12 @@ import Section2 from "./Section2";
 import Section4 from "./Section4";
 import HorizontalScroller from "./HorizontalScroller";
 import { Typography } from "@mui/material";
+import Dropmenu from "./Dropmenu";
 
 function Home() {
   return (<>
   <Navbar/>
   <Section1/>
-  
   <Typography>Feature grid</Typography>
   <Section2/>
   <Typography>Horizontal Scroll</Typography>
