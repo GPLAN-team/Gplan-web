@@ -45,17 +45,17 @@ function Dropmenu() {
             horizontal:'left'
         }}
       >
-        <MenuItem onClick={handleClose}  sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>Go To All Files</MenuItem>
+        <MenuItem onClick={handleClose}  sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Go To All Files</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>New File</MenuItem>
+        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>New File</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>Save File</MenuItem>
+        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Save File</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>View Graph</MenuItem>
+        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>View Graph</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>Export</MenuItem>
+        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Export</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}>Exit</MenuItem>
+        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Exit</Typography></MenuItem>
       </Menu>
       </Box>
     </>
