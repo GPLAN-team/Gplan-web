@@ -45,17 +45,17 @@ function Dropmenu() {
             horizontal:'left'
         }}
       >
-        <MenuItem onClick={handleClose}  sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Go To All Files</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose}  sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Go To All Files</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>New File</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>New File</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Save File</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Save File</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>View Graph</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>View Graph</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Export</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Export</Typography></MenuItem>
         <Divider variant='middle'/>
-        <MenuItem onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Exit</Typography></MenuItem>
+        <MenuItem dense onClick={handleClose} sx={{paddingRight:'75px', paddingTop:'2px', paddingBottom:'0px'}}><Typography fontFamily='Montserrat, Arial' fontSize='16px' color='#333'>Exit</Typography></MenuItem>
       </Menu>
       </Box>
     </>
