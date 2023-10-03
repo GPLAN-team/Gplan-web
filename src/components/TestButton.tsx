@@ -38,6 +38,7 @@ function TestButton(props : {children : ReactNode, func: (msg : String) => void}
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
     sx={{
+      boxShadow: `${click==="on" && "2px 2px 4px rgba(0, 0, 0, 0.2)"}`,
       margin: '10px',
       transition:'0.3s',
       borderRadius:'5px',
@@ -47,6 +48,7 @@ function TestButton(props : {children : ReactNode, func: (msg : String) => void}
       minHeight: "35px",
       backgroundColor: bgColor,
       "&:hover": {
+        boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
         background: '#1C4C82',
       },
     }}
