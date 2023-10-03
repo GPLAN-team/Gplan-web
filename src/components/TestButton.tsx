@@ -4,7 +4,7 @@ import { useState } from "react";
 import MagnetIcon from "./icons/MagnetIcon";
 import { Button } from "@mui/material";
 
-function TestButton(props : {children : ReactNode, func: () => void}) {
+function TestButton(props : {children : ReactNode, func: (msg : String) => void}) {
   const [iconColor, setIconColor] = useState("black");
   const [bgColor, setbgColor] = useState("white");
   const [click, setClick] = useState("off");
@@ -15,7 +15,8 @@ function TestButton(props : {children : ReactNode, func: () => void}) {
   const handleonClick = () => {
     click === "off" ? setClick("on") : setClick("off");
 
-    props.func()
+    !(click==="on") && props.func("First Click => ON : function/feature from backend executes such as tool for editing floorplan");
+    !(click==="off") && props.func("Second Click => OFF : function/feature from backend stops executing");
 
     console.log(click);
     iconColor === "white" ? setIconColor("white") : setIconColor("black");

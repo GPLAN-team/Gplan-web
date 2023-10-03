@@ -22,113 +22,113 @@ function Home() {
   return (
     <>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <ColorPotIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <LeftArrowIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <LeftCurvedArrowIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <MagnetIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <MenuIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <PenIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <MinusIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <PlusIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <RightArrowIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <RightCurvedArrowIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <ScaleIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <ScalePencilIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <SelectBoxIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <TagIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <TextBoxIcon color={""} />
       </TestButton>
       <TestButton
-        func={() => {
-          alert("Click executes fuction from backend");
+        func={(msg : String) => {
+          alert(msg);
         }}
       >
         <UpLeftCursorIcon color={""} />
