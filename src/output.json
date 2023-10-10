@@ -1,0 +1,35 @@
+{
+    "message": "Generated single irregular floorplan",
+    "time": " 27.308 ms",
+    "floorplans": [
+        [
+            {
+                "id": 0,
+                "label": "kitchen",
+                "color": "#e7e7e7",
+                "left": 0,
+                "top": 0,
+                "width": 80,
+                "height": 40
+            },
+            {
+                "id": 1,
+                "label": "living room",
+                "color": "#e7e7e7",
+                "left": 40,
+                "top": 40,
+                "width": 40,
+                "height": 40
+            },
+            {
+                "id": 2,
+                "label": "rotunda",
+                "color": "#e7e7e7",
+                "left": 0,
+                "top": 40,
+                "width": 40,
+                "height": 40
+            }
+        ]
+    ]
+}
