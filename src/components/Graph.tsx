@@ -1,8 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import * as d3 from 'd3';
 import { Button } from './Button';
 import { BASE_ADDR } from '../config'
+import { NameContext } from './DashBoard';
+
+import axios from 'axios'
+// import LocalStorageService from './services/storage/localstorageservice'
+
 import styled from 'styled-components'
+
 const CustomDiv = styled.div`
 .svgDualGraph {
   cursor: crosshair;
@@ -41,12 +47,33 @@ const CustomDiv = styled.div`
 }
 `
 
-const Graph = (resp: any) => {
+const Graph = () => {
     const svgRef = useRef<SVGSVGElement | null>(null);
-    const [nodes, setNodes] = useState<{ id: number; centre: {x: number; y: number }}[]>([]);
+    const [nodes, setNodes] = useState<{ id: number; x: number; y: number, label: string, color: string }[]>([]);
     const [links, setLinks] = useState<{ source: number; target: number }[]>([]);
     const [dragging, setDragging] = useState(false);
-    const [dragStartNode, setDragStartNode] = useState<{ id: number; centre: {x: number; y: number }} | null>(null);
+    const [dragStartNode, setDragStartNode] = useState<{ id: number; x: number; y: number } | null>(null);
+    const { setResp } = useContext(NameContext);
+    // useEffect(() => {
+
+    //     // LocalStorageService
+    //     // const localStorageService = LocalStorageService.getService()
+
+    //     // Add a request interceptor
+    //     axios.interceptors.request.use(
+    //         config => {
+    //             const token = localStorage.getAccessToken()
+    //             if (token) {
+    //                 config.headers['Authorization'] = 'Bearer ' + token
+    //             }
+    //             // config.headers['Content-Type'] = 'application/json';
+    //             return config
+    //         },
+    //         error => {
+    //             Promise.reject(error)
+    //         }
+    //     )
+    // }, [])
 
     useEffect(() => {
         const svg = d3.select(svgRef.current);
@@ -54,9 +81,10 @@ const Graph = (resp: any) => {
         svg.on('dblclick', (event: MouseEvent) => {
             event.preventDefault();
             const [x, y] = d3.pointer(event);
-            const id = nodes.length + 1;
-            const centre = {x, y};
-            setNodes([...nodes, { id, centre }]);
+            const id = nodes.length;
+            const label = `${nodes.length+1}`;
+            const color = getRandomColor();
+            setNodes([...nodes, { id, x, y, label, color }]);
         });
 
         svg.on('mousedown', (event: MouseEvent) => {
@@ -65,7 +93,7 @@ const Graph = (resp: any) => {
             const clickedNode = findNode(x, y);
 
             if (clickedNode) {
-                // Clicked on a node, start the drag line
+                // Clicked on a node, source the drag line
                 setDragging(true);
                 setDragStartNode(clickedNode);
             }
@@ -76,7 +104,7 @@ const Graph = (resp: any) => {
             if (dragging && dragStartNode) {
                 // Update the drag line while dragging the mouse
                 const [x, y] = d3.pointer(event);
-                drawDragLine(dragStartNode.centre.x, dragStartNode.centre.y, x, y);
+                drawDragLine(dragStartNode.x, dragStartNode.y, x, y);
             }
         });
 
@@ -98,10 +126,15 @@ const Graph = (resp: any) => {
         });
     });
 
+    function getRandomColor(): string {
+        const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        return randomColor;
+      }
+
     function findNode(x: number, y: number) {
         return nodes.find((node) => {
-            const dx = x - node.centre.x;
-            const dy = y - node.centre.y;
+            const dx = x - node.x;
+            const dy = y - node.y;
             return Math.sqrt(dx * dx + dy * dy) < 20; // Node radius for hit detection
         });
     }
@@ -133,9 +166,9 @@ const Graph = (resp: any) => {
             .attr('class', 'vertex')
             .attr('r', 20)
             .merge(nodeSelection)
-            .attr('cx', (d) => d.centre.x)
-            .attr('cy', (d) => d.centre.y)
-            .style('fill', 'lightblue')
+            .attr('cx', (d) => d.x)
+            .attr('cy', (d) => d.y)
+            .style('fill', (d) => d.color)
         //   .call(d3.drag<SVGCircleElement, any>().on('drag', (event, d) => {
         //     // Drag behavior for nodes
         //     d.x = event.x;
@@ -154,58 +187,41 @@ const Graph = (resp: any) => {
             .merge(linkSelection)
             .attr('x1', (d) => {
                 const sourceNode = nodes.find((node) => node.id === d.source)!;
-                return sourceNode.centre.x;
+                return sourceNode.x;
             })
             .attr('y1', (d) => {
                 const sourceNode = nodes.find((node) => node.id === d.source)!;
-                return sourceNode.centre.y;
+                return sourceNode.y;
             })
             .attr('x2', (d) => {
                 const targetNode = nodes.find((node) => node.id === d.target)!;
-                return targetNode.centre.x;
+                return targetNode.x;
             })
             .attr('y2', (d) => {
                 const targetNode = nodes.find((node) => node.id === d.target)!;
-                return targetNode.centre.y;
+                return targetNode.y;
             });
 
         linkSelection.exit().remove();
     }
     update();
 
-    let emitData = async () => {
+    let emitData = () => {
         // No JSON Stringify needed when using emit
-        let graphData = { 
+        let graphData = {
             "multiple": true,
             "rectangular": false,
-            "nodes": nodes, 
+            "nodes": nodes,
             "edges": links
         }
-        const requestOptions: RequestInit = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // Add any other headers as needed
-            },
-            body: JSON.stringify(graphData),
-        };
-
-        // Make a POST request with fetch
-        fetch(BASE_ADDR, requestOptions)
+        axios.post(BASE_ADDR, graphData)
             .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                resp = response.json();
-            })
-            .then((data) => {
-                // Handle the response data here
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error('Fetch error:', error);
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
             });
     }
+
 
     return (
         <div>

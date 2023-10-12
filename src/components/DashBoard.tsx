@@ -1,38 +1,44 @@
-import React, { useEffect } from 'react'
-// import io from 'socket.io-client'
+import React, { useEffect, useState, createContext } from 'react'
 import { GRID_SNAP } from '../config'
-
-
-// import { Card } from '~/components/Card'
-// import { Button } from '~/components/Button'
-// import { Form } from '~/components/Form'
-// import RFP from '~/components/RFP'
-// import Graphler from '~/components/Graphler'
 import Graph from './Graph'
-import DrawBoard from './DrawingBoard'
-// import { Socket } from 'socket.io-client';
+import DrawingBoard from './DrawingBoard'
+
+// Create a new context and export
+export const NameContext = createContext({ resp: [], setResp: ([]: any) => { } });
+
+// Create a Context Provider
+const NameContextProvider = ({ children }: { children: any }) => {
+    const [resp, setResp] = useState([]);
+
+    return (
+        <NameContext.Provider value={{ resp, setResp }}>
+            {children}
+        </NameContext.Provider>
+    );
+};
 
 export default function Dashboard() {
-//   let [socket, setSocket] = useState<Socket | null>(null)
 
-  useEffect(() => {
-    document.title = 'Dashboard'
-    // setSocket(io(BASE_ADDR))
-  }, [])
+    useEffect(() => {
+        document.title = 'Dashboard'
+    }, [])
 
-  let resp  = {};
-
-  return (
-    <>
-      <div className="col-12 title">
-        <h1>Planar Web Dashboard</h1>
-      </div>
-      <div className="col-5 px-0">
-            <Graph resp = {resp}/>
-      </div>
-      <div className="col-7 px-0">
-            <DrawBoard size={480} snap = {GRID_SNAP} resp={resp}/>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <div className="col-12 title">
+                <h1>GPLAN</h1>
+                <h3 className = "text-primary">Double click to insert a new node. Drag between nodes to add an edge</h3>
+            </div>
+            <NameContextProvider>
+                <div className = "d-flex">
+                    <div className="col-5 px-0">
+                        <Graph />
+                    </div>
+                    <div className="px-0">
+                        <DrawingBoard size={600} snap={GRID_SNAP} />
+                    </div>
+                </div>
+            </NameContextProvider >
+        </>
+    )
 }
