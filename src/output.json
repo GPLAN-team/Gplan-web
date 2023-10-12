@@ -33,3 +33,85 @@
         ]
     ]
 }
+
+
+{
+    "multiple": true,
+    "rectangular": false,
+    "nodes": [
+        {
+            "id": 1,
+            "centre": {
+                "x": 235.39999389648438,
+                "y": 319.125
+            },
+            "rectangle":{
+                "width_min": 2.0,
+                "width_max": 4.2,
+                "height_min": 2.5,
+                "height_max": 6.2,
+            }
+        },
+        {
+            "id": 2,
+            "centre": {
+                "x": 442.3999938964844,
+                "y": 312.125
+            },
+            "rectangle":{
+                "width_min": 2.0,
+                "width_max": 4.2,
+                "height_min": 2.5,
+                "height_max": 6.2,
+            }
+        },
+        {
+            "id": 3,
+            "centre": {
+                "x": 439.3999938964844,
+                "y": 169.125
+            },
+            "rectangle":{
+                "width_min": 2.0,
+                "width_max": 4.2,
+                "height_min": 2.5,
+                "height_max": 6.2,
+            }
+        },
+        {
+            "id": 4,
+            "centre": {
+                "x": 275.3999938964844,
+                "y": 172.125
+            },
+            "rectangle":{
+                "width_min": 2.0,
+                "width_max": 4.2,
+                "height_min": 2.5,
+                "height_max": 6.2,
+            }
+        }
+    ],
+    "edges": [
+        {
+            "start": 4,
+            "end": 1
+        },
+        {
+            "start": 1,
+            "end": 2
+        },
+        {
+            "start": 2,
+            "end": 4
+        },
+        {
+            "start": 4,
+            "end": 3
+        },
+        {
+            "start": 3,
+            "end": 2
+        }
+    ]
+}
