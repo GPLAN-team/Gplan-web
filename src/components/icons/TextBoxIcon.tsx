@@ -1,14 +1,12 @@
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
-function TextBoxIcon(props : {color : String}) {
+function TextBoxIcon(props: { color: String }) {
   return (
-    <SvgIcon sx={{ color: `${props.color}`}}>
+    <SvgIcon sx={{ color: `${props.color}` }}>
       {/* credit: plus icon from https://heroicons.com/ */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="0.266667in"
-        height="0.277778in"
         viewBox="0 0 24 25"
         stroke="currentColor"
       >

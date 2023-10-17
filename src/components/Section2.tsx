@@ -29,7 +29,6 @@ function Section2() {
       container
       rowSpacing={8}
       columnSpacing={16}
-      border='solid'
       sx={{
         padding: "50px 64px"
       }}

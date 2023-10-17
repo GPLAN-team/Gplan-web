@@ -24,7 +24,6 @@ function HorizontalScroller() {
     <>
       <Box
         sx={{
-          border:'solid',
           marginLeft: "64px",
           display: "flex",
           overflowX: "auto",

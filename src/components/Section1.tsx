@@ -13,7 +13,6 @@ function Section1() {
         right: "0px",
         height: { height },
         display: "flex",
-        border:'solid',
         flexDirection: "column",
         justifyContent: "center",
       }}
