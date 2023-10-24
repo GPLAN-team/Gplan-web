@@ -1,22 +1,4 @@
 import React from "react";
-import Dropmenu from "./Dropmenu";
-import MagnetIcon from "./icons/MagnetIcon";
-import MenuIcon from "./icons/MenuIcon";
-import TestButton from "./TestButton";
-import UpLeftCursorIcon from "./icons/UpLeftCursorIcon";
-import ColorPotIcon from "./icons/ColorPotIcon";
-import LeftArrowIcon from "./icons/LeftArrowIcon";
-import LeftCurvedArrowIcon from "./icons/LeftCurvedArrowIcon";
-import PenIcon from "./icons/PenIcon";
-import MinusIcon from "./icons/MinusIcon";
-import PlusIcon from "./icons/PlusIcon";
-import RightArrowIcon from "./icons/RightArrowIcon";
-import RightCurvedArrowIcon from "./icons/RightCurvedArrowIcon";
-import ScaleIcon from "./icons/ScaleIcon";
-import ScalePencilIcon from "./icons/ScalePencilIcon";
-import SelectBoxIcon from "./icons/SelectBoxIcon";
-import TagIcon from "./icons/TagIcon";
-import TextBoxIcon from "./icons/TextBoxIcon";
 import { Box, SvgIcon, Typography } from "@mui/material";
 import Navbar from "./Navbar";
 import Section1 from "./Section1";
@@ -26,11 +8,19 @@ import Section4 from "./Section4";
 import HorizontalScroller from "./HorizontalScroller";
 import Footer from "./Footer";
 import SignUpPage from "./SignUpPage";
+import LoginPage from "./LoginPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function Home() {
   return (
     <>
-   <SignUpPage/>
+    <Router>
+              <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+              </Routes>
+          </Router>
+
     {/* <Navbar/>
     <Section1/>
     <Box sx={{display:'flex', justifyContent:"center", my:'20px'}}><Typography variant="h3">Features</Typography></Box>
