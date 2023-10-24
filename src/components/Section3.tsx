@@ -15,7 +15,7 @@ function Section3() {
         margin: "0px",
       }}
     >
-      <Zoom in={imageIsVisible} timeout={450} easing='ease-in-out'>
+      <Zoom in={imageIsVisible} timeout={500} easing='ease-in-out'>
       <Box
         ref={imageRef}
         sx={{

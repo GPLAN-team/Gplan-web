@@ -25,12 +25,13 @@ import Section3 from "./Section3";
 import Section4 from "./Section4";
 import HorizontalScroller from "./HorizontalScroller";
 import Footer from "./Footer";
+import SignUpPage from "./SignUpPage";
 
 function Home() {
   return (
     <>
-
-    <Navbar/>
+   <SignUpPage/>
+    {/* <Navbar/>
     <Section1/>
     <Box sx={{display:'flex', justifyContent:"center", my:'20px'}}><Typography variant="h3">Features</Typography></Box>
     
@@ -41,7 +42,7 @@ function Home() {
     <Section4/>
     <Box sx={{display:'flex', justifyContent:"left", margin:'32px'}}><Typography variant="h3">Quick Start Guides</Typography></Box>
     <HorizontalScroller/>
-    <Footer/>{/* 
+    <Footer/> */}{/* 
       <TestButton
         func={(msg : String) => {
           alert(msg);
