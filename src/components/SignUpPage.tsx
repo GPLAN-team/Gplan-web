@@ -11,18 +11,18 @@ function SignUpPage() {
     const [pswd, setPswd] = useState("");
     const [confirmPswd, setConfirmPswd] = useState("");
 
-    console.log(name);
-    console.log(pswd);
-    console.log(confirmPswd);
+    // console.log(name);
+    // console.log(pswd);
+    // console.log(confirmPswd);
 
     let onSubmit = () => {
         axios.post("http://139.59.1.248/auth/signup/", {
             "username": name,
             "password": pswd
         })
-        .then((response) => {
-            // <Login/>
-        });
+            .then((response) => {
+                // <Login/>
+            });
     }
 
     return (
@@ -34,7 +34,7 @@ function SignUpPage() {
                     justifyContent: "center",
                     height: "100vh",
                     width: "100vw",
-                    background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
+                    background: `url(${loginBG}), lightgray 50% / cover no-repeat`,
                     backgroundSize: "cover",
                     mixBlendMode: "screen",
                 }}
@@ -324,7 +324,7 @@ function SignUpPage() {
                             sx={{
                                 backgroundColor: "#1C4C82",
                             }} /* sx={{textTransform: "lowercase !important"}} */
-                            // onClick={onSubmit}
+                        // onClick={onSubmit}
                         >
                             <Typography
                                 sx={{
