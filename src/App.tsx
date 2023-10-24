@@ -1,5 +1,5 @@
+import SignUpPage from "./components/SignUpPage";
 import Login from "./components/Login";
-
 // function randomColor(): string {
 //   const red = Math.floor(Math.random() * 256)
 //     .toString(16)
@@ -15,7 +15,7 @@ import Login from "./components/Login";
 
 const App = () => {
   return <>
-    <Login />
+    <SignUpPage/>
   </>
   //   const createNode = (x: number, y: number) => {
   //     const color = randomColor();
