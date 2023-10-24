@@ -48,6 +48,10 @@ function LoginPage() {
             // return redirectDocument("/dashboard");
             // <Navigate to='/dashboard' replace = {true} />
         })
+        .catch((error) => {
+          navigate("/login");
+          setFormValues({username:"", password:""})
+        })
   }
 
   return (
