@@ -1,10 +1,21 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import loginBG from "../public/loginBG.png";
 import googleLogo from "../public/googleLogo.png";
 import fbLogo from "../public/fbLogo.png";
 
+
 function SignUpPage() {
+  const [name, setName] = useState("");
+  const [pswd, setPswd] = useState("");
+  const [confirmPswd, setConfirmPswd] = useState("");
+
+  console.log(name);
+  console.log(pswd);
+  console.log(confirmPswd);
+
+
+  
   return (
     <>
       <Box
@@ -177,6 +188,7 @@ function SignUpPage() {
               <TextField
                 fullWidth
                 size="small"
+                required
                 InputLabelProps={{
                   shrink: false,
                   style: {
@@ -188,8 +200,12 @@ function SignUpPage() {
                     lineHeight: "24px",
                   },
                 }}
-                label="Enter your username"
+                placeholder="Enter your username"
                 id="fullWidth"
+                value={name}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  setName(event.target.value);
+                }}
               />
             </Box>
             <Box
@@ -220,6 +236,7 @@ function SignUpPage() {
                 </Typography>
                 <TextField
                   fullWidth
+                  required
                   size="small"
                   InputLabelProps={{
                     shrink: false,
@@ -232,8 +249,13 @@ function SignUpPage() {
                       lineHeight: "24px",
                     },
                   }}
-                  label="Enter your password"
+                  type="password"
+                  placeholder="Enter your password"
                   id="fullWidth"
+                  value={pswd}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setPswd(event.target.value);
+                  }}
                 />
               </Box>
               <Box
@@ -250,18 +272,22 @@ function SignUpPage() {
                     color: "#282828",
 
                     /* SubText */
-                    fontFamily: "Poppins",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
+                    // fontFamily: "Poppins",
+                    // fontSize: "16px",
+                    // fontStyle: "normal",
+                    // fontWeight: 400,
+                    // lineHeight: "24px",
+
                   }}
                 >
                   Confirm Password
                 </Typography>
                 <TextField
                   fullWidth
+                  required
                   size="small"
+                  type="password"
+                  placeholder="Re-Enter your password"
                   InputLabelProps={{
                     shrink: false,
                     style: {
@@ -273,8 +299,12 @@ function SignUpPage() {
                       lineHeight: "24px",
                     },
                   }}
-                  label="Re-Enter your password"
+                  // label="Re-Enter your password"
                   id="fullWidth"
+                  value={confirmPswd}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setConfirmPswd(event.target.value);
+                  }}
                 />
               </Box>
             </Box>
@@ -299,6 +329,7 @@ function SignUpPage() {
                 Sign Up
               </Typography>
             </Button>
+            {/*
             <Box
               sx={{
                 width: "506px",
@@ -325,7 +356,7 @@ function SignUpPage() {
                     flex: "1 0 0",
                     color: "#282828",
                     fontFeatureSettings: `'clig' off, 'liga' off`,
-                    /* poppins regular14 */
+                   
                     fontFamily: "Poppins",
                     fontSize: "14px",
                     fontStyle: "normal",
@@ -354,7 +385,7 @@ function SignUpPage() {
                     flex: "1 0 0",
                     color: "#282828",
                     fontFeatureSettings: `'clig' off, 'liga' off`,
-                    /* poppins regular14 */
+                  
                     fontFamily: "Poppins",
                     fontSize: "14px",
                     fontStyle: "normal",
@@ -365,12 +396,11 @@ function SignUpPage() {
                   Sign Up with Facebook
                 </Typography>
               </Box>
-            </Box>
+                </Box> */}
           </Box>
           <Typography
             sx={{
               color: "#282828",
-
               /* SubText */
               fontFamily: "Poppins",
               fontSize: "16px",
