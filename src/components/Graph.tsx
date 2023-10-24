@@ -3,11 +3,11 @@ import * as d3 from 'd3';
 import { Button } from './Button';
 import { BASE_ADDR } from '../config'
 import { NameContext } from './DashBoard';
-
-import axios from 'axios'
+import axiosInstance from '../axiosInstance';
+// import axios from 'axios'
 // import LocalStorageService from './services/storage/localstorageservice'
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const CustomDiv = styled.div`
 .svgDualGraph {
@@ -38,7 +38,6 @@ const CustomDiv = styled.div`
   stroke: #333;
   opacity: 0.8;
 }
-
 .label{
   text-anchor: middle;
   pointer-events: none;
@@ -48,18 +47,15 @@ const CustomDiv = styled.div`
 `
 
 const Graph = () => {
+    const RADIUS = 20;
     const svgRef = useRef<SVGSVGElement | null>(null);
     const [nodes, setNodes] = useState<{ id: number; x: number; y: number, label: string, color: string }[]>([]);
     const [links, setLinks] = useState<{ source: number; target: number }[]>([]);
     const [dragging, setDragging] = useState(false);
     const [dragStartNode, setDragStartNode] = useState<{ id: number; x: number; y: number } | null>(null);
     const { setResp } = useContext(NameContext);
+
     // useEffect(() => {
-
-    //     // LocalStorageService
-    //     // const localStorageService = LocalStorageService.getService()
-
-    //     // Add a request interceptor
     //     axios.interceptors.request.use(
     //         config => {
     //             const token = localStorage.getAccessToken()
@@ -75,16 +71,28 @@ const Graph = () => {
     //     )
     // }, [])
 
+    function isNodePossible(x: number, y: number, nodes: { id: number; x: number; y: number, label: string, color: string }[]) {
+
+        for (let i = 0; i < nodes.length; i++) {
+            let calc = ((nodes[i].x - x) ** 2 + (nodes[i].y - y) ** 2);
+            if (calc < (RADIUS * 2) ** 2) return false;
+        }
+        return true;
+    }
+
     useEffect(() => {
         const svg = d3.select(svgRef.current);
 
         svg.on('dblclick', (event: MouseEvent) => {
             event.preventDefault();
             const [x, y] = d3.pointer(event);
-            const id = nodes.length;
-            const label = `${nodes.length+1}`;
-            const color = getRandomColor();
-            setNodes([...nodes, { id, x, y, label, color }]);
+            let check = isNodePossible(x, y, nodes);
+            if (check) {
+                const id = nodes.length;
+                const label = `${nodes.length + 1}`;
+                const color = getRandomColor();
+                setNodes([...nodes, { id, x, y, label, color }]);
+            }
         });
 
         svg.on('mousedown', (event: MouseEvent) => {
@@ -126,16 +134,29 @@ const Graph = () => {
         });
     });
 
-    function getRandomColor(): string {
-        const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-        return randomColor;
-      }
+    // function getRandomColor(): string {
+    //     const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    //     return randomColor;
+    //   }
 
+    function getRandomColor(): string {
+        const red = Math.floor(Math.random() * 256)
+            .toString(16)
+            .padStart(2, "0");
+        const green = Math.floor(Math.random() * 256)
+            .toString(16)
+            .padStart(2, "0");
+        const blue = Math.floor(Math.random() * 256)
+            .toString(16)
+            .padStart(2, "0");
+        return `#${red}${green}${blue}`;
+    }
+    
     function findNode(x: number, y: number) {
         return nodes.find((node) => {
             const dx = x - node.x;
             const dy = y - node.y;
-            return Math.sqrt(dx * dx + dy * dy) < 20; // Node radius for hit detection
+            return Math.sqrt(dx * dx + dy * dy) < RADIUS; // Node radius for hit detection
         });
     }
 
@@ -164,7 +185,7 @@ const Graph = () => {
             .enter()
             .append('circle')
             .attr('class', 'vertex')
-            .attr('r', 20)
+            .attr('r', RADIUS)
             .merge(nodeSelection)
             .attr('cx', (d) => d.x)
             .attr('cy', (d) => d.y)
@@ -207,28 +228,33 @@ const Graph = () => {
     update();
 
     let emitData = () => {
-        // No JSON Stringify needed when using emit
         let graphData = {
             "multiple": true,
             "rectangular": false,
             "nodes": nodes,
             "edges": links
         }
-        axios.post(BASE_ADDR, graphData)
+        axiosInstance.post(BASE_ADDR, graphData)
             .then((response) => {
                 let resp = response.data.floorplans;
-                console.log(resp);
+                // console.log(resp);
                 setResp(resp);
             });
     }
 
-
+    let resetBoard = () => {
+        setLinks([]);
+        setNodes([]);
+        setDragging(false);
+        setDragStartNode(null);
+    }
     return (
         <div>
             <CustomDiv>
                 <svg ref={svgRef} className="svgDualGraph" width={600} height={600}></svg>
             </CustomDiv>
-            <Button id="sendDataButton" className="orange btn-circle" onClick={emitData}>Send</Button>
+            <Button id="sendDataButton" className="orange btn-circle d-inline-block" onClick={emitData}>Send</Button>
+            <Button className="red btn-circle m-2 d-inline-block" onClick={resetBoard}>Reset</Button>
         </div>
     );
 };

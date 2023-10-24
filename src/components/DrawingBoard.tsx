@@ -111,8 +111,8 @@ export default function DrawingBoard({ size, snap }: DrawingBoardProps) {
         const rects = listRFP[indexRFP];
         rects.forEach((rdata: any) => {
             const rect = new fabric.Rect({
-                left: Number(rdata['left']) + Number(snap),
-                top: Number(rdata['top']) + Number(snap),
+                left: Number(rdata['left']) + Number(snap*6),
+                top: Number(rdata['top']) + Number(snap*6),
                 width: Number(rdata['width']),
                 height: Number(rdata['height']),
                 fill: rdata['color'],
