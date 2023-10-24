@@ -23,18 +23,18 @@ function SignUpPage() {
   const [isVisible1, setvisibility1] = useState(false);
   const [isVisible2, setvisibility2] = useState(false);
 
-    console.log(name);
-    console.log(pswd);
-    console.log(confirmPswd);
+    // console.log(name);
+    // console.log(pswd);
+    // console.log(confirmPswd);
 
     let onSubmit = () => {
         axios.post("http://139.59.1.248/auth/signup/", {
             "username": name,
             "password": pswd
         })
-        .then((response) => {
-            // <Login/>
-        });
+            .then((response) => {
+                // <Login/>
+            });
     }
     const handleChangeVisibility1 = () => {
         setvisibility1(!isVisible1);
@@ -53,7 +53,7 @@ function SignUpPage() {
                     justifyContent: "center",
                     height: "100vh",
                     width: "100vw",
-                    background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
+                    background: `url(${loginBG}), lightgray 50% / cover no-repeat`,
                     backgroundSize: "cover",
                     mixBlendMode: "screen",
                 }}
