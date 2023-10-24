@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import * as d3 from 'd3';
-import { Button } from './Button';
+import { Button, Buttons } from './Button';
 import { BASE_ADDR } from '../config'
 import { NameContext } from './DashBoard';
 import axiosInstance from '../axiosInstance';
-// import axios from 'axios'
+import axios from 'axios'
 // import LocalStorageService from './services/storage/localstorageservice'
 
 import styled from 'styled-components';
@@ -227,34 +227,139 @@ const Graph = () => {
     }
     update();
 
-    let emitData = () => {
+    let emitDataIrregular = () => {
+        // No JSON Stringify needed when using emit
         let graphData = {
-            "multiple": true,
+            "multiple": false,
             "rectangular": false,
             "nodes": nodes,
             "edges": links
         }
-        axiosInstance.post(BASE_ADDR, graphData)
+        axios.post(BASE_ADDR+'/irregular', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
+    }
+
+    let emitDataRectangular = () => {
+        // No JSON Stringify needed when using emit
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/rectangular', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
+    }
+
+    let emitDataLshape = () => {
+        // No JSON Stringify needed when using emit
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/lshape', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
+    }
+
+    let emitDataUshape = () => {
+        // No JSON Stringify needed when using emit
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/ushape', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
+    }
+
+    let emitDataTshape = () => {
+        // No JSON Stringify needed when using emit
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/tshape', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
+    }
+
+    let emitDataZshape = () => {
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/zshape', graphData)
             .then((response) => {
                 let resp = response.data.floorplans;
                 // console.log(resp);
                 setResp(resp);
             });
     }
-
+    
     let resetBoard = () => {
         setLinks([]);
         setNodes([]);
         setDragging(false);
         setDragStartNode(null);
+    }    
+    let emitDataStaircase = () => {
+        // No JSON Stringify needed when using emit
+        let graphData = {
+            "multiple": false,
+            "rectangular": false,
+            "nodes": nodes,
+            "edges": links
+        }
+        axios.post(BASE_ADDR+'/staircaseshape', graphData)
+            .then((response) => {
+                let resp = response.data.floorplans;
+                console.log(resp);
+                setResp(resp);
+            });
     }
+    
     return (
         <div>
             <CustomDiv>
                 <svg ref={svgRef} className="svgDualGraph" width={600} height={600}></svg>
+            <Buttons>
+                <Button id="sendDataButton" className="orange btn-circle" onClick={emitDataIrregular}>Irregular</Button>
+                <Button id="sendDataButton" className="red btn-circle" onClick={emitDataRectangular}>Rectangular</Button>
+                <Button id="sendDataButton" className="blue btn-circle" onClick={emitDataLshape}>L Shape</Button>
+                <Button id="sendDataButton" className="citron btn-circle" onClick={emitDataUshape}>U Shape</Button>
+                <Button id="sendDataButton" className="sand btn-circle" onClick={emitDataTshape}>T Shape</Button>
+                <Button id="sendDataButton" className="purple btn-circle" onClick={emitDataZshape}>Z Shape</Button>    
+                <Button id="sendDataButton" className="teal btn-circle" onClick={emitDataStaircase}>Staircase Shape</Button>    
+                <Button className="red btn-circle m-2 d-inline-block" onClick={resetBoard}>Reset</Button>
+            </Buttons>
             </CustomDiv>
-            <Button id="sendDataButton" className="orange btn-circle d-inline-block" onClick={emitData}>Send</Button>
-            <Button className="red btn-circle m-2 d-inline-block" onClick={resetBoard}>Reset</Button>
+            {/* <Button id="sendDataButton" className="orange btn-circle d-inline-block" onClick={emitData}>Send</Button> */}
         </div>
     );
 };

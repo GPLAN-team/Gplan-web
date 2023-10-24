@@ -1,4 +1,4 @@
-const BASE_ADDR = 'http://139.59.1.248/api/generate/nondim'
+const BASE_ADDR = 'http://139.59.1.248/api/generate'
 const GRID_SNAP = 40
 
 /*
