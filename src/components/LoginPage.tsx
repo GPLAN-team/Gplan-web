@@ -1,13 +1,17 @@
 import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import loginBG from "../public/loginBG.png";
-import googleLogo from "../public/googleLogo.png";
-import fbLogo from "../public/fbLogo.png";
+import axios from 'axios';
+// import googleLogo from "../public/googleLogo.png";
+// import fbLogo from "../public/fbLogo.png";
 
 function LoginPage() {
+  
+  const navigate = useNavigate();
+
   interface FormValues {
     username?: string;
     password?: string;
@@ -33,6 +37,17 @@ function LoginPage() {
 
   const handleOnSubmit = () => {
     // api call with form data stored in an array name FormValue with username and password as data
+    axios.post('http://139.59.1.248/auth/token/', {
+            "username": formValues.username,
+            "password": formValues.password
+        }).then((resp) => {
+            localStorage.setItem('access_token', resp.data.access);
+            localStorage.setItem('refresh_token', resp.data.refresh);
+            console.log("login successful");
+            navigate("/dashboard");
+            // return redirectDocument("/dashboard");
+            // <Navigate to='/dashboard' replace = {true} />
+        })
   }
 
   return (
@@ -46,7 +61,6 @@ function LoginPage() {
           width: "100vw",
           background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
           backgroundSize: "cover",
-          mixBlendMode: "screen",
         }}
       >
         <Box
@@ -70,54 +84,54 @@ function LoginPage() {
               fill="none"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M48.0009 2L93.6018 28.3283V80.9839L48.0009 107.313L2.39819 80.9839V28.3283L48.0009 2Z"
                 stroke="#1C4C82"
-                stroke-width="3.59941"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.59941"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M21.5623 69.9565L65.9584 96.2337"
                 stroke="#1C4C82"
-                stroke-width="3.78886"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.78886"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M74.6055 69.9565L29.2772 96.2336"
                 stroke="#1C4C82"
-                stroke-width="3.81813"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.81813"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M47.9983 2V54.6563M47.9983 54.6563L2.94873 80.8096M47.9983 54.6563L93.6012 80.6264"
                 stroke="#1C4C82"
-                stroke-width="3.59941"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.59941"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M21.2759 18.6323L21.3536 50.033L21.3345 69.6664"
                 stroke="#1C4C82"
-                stroke-width="3.78886"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.78886"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M48.2749 3.3501L74.6075 69.9564"
                 stroke="#1C4C82"
-                stroke-width="3.78886"
-                stroke-miterlimit="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.78886"
+                strokeMiterlimit="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Box>

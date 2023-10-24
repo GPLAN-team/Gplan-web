@@ -1,9 +1,8 @@
-import SignUpPage from "./components/SignUpPage";
-import Login from "./components/Login";
+import Home from "./components/Home";
 
 const App = () => {
   return <>
-    <SignUpPage/>
+    <Home/>
   </>
   //   const createNode = (x: number, y: number) => {
   //     const color = randomColor();

@@ -1,27 +1,27 @@
 import {
-  Box,
-  Button,
-  InputAdornment,
-  TextField,
-  Typography,
+    Box,
+    Button,
+    InputAdornment,
+    TextField,
+    Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+// import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+// import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import loginBG from "../public/loginBG.png";
 // import googleLogo from "../public/googleLogo.png";
 // import fbLogo from "../public/fbLogo.png";
 import axios from 'axios'
-import Login from './Login'
 
 function SignUpPage() {
-  const [name, setName] = useState("");
-  const [pswd, setPswd] = useState("");
-  const [confirmPswd, setConfirmPswd] = useState("");
-  const [isVisible1, setvisibility1] = useState(false);
-  const [isVisible2, setvisibility2] = useState(false);
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [pswd, setPswd] = useState("");
+    const [confirmPswd, setConfirmPswd] = useState("");
+    // const [isVisible1, setvisibility1] = useState(false);
+    // const [isVisible2, setvisibility2] = useState(false);
 
     // console.log(name);
     // console.log(pswd);
@@ -32,17 +32,17 @@ function SignUpPage() {
             "username": name,
             "password": pswd
         })
-            .then((response) => {
-                <Login/>
+            .then(() => {
+                navigate('/dashboard');
             });
     }
-    const handleChangeVisibility1 = () => {
-        setvisibility1(!isVisible1);
-      };
+    // const handleChangeVisibility1 = () => {
+    //     setvisibility1(!isVisible1);
+    // };
 
-      const handleChangeVisibility2 = () => {
-        setvisibility2(!isVisible2);
-      };
+    // const handleChangeVisibility2 = () => {
+    //     setvisibility2(!isVisible2);
+    // };
 
     return (
         <>
@@ -251,160 +251,161 @@ function SignUpPage() {
                                     sx={{
                                         color: "#282828",
 
-                    /* SubText */
-                    fontFamily: "Poppins",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
-                  }}
-                >
-                  Password
-                </Typography>
-                <TextField
-                  fullWidth
-                  required
-                  size="small"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {isVisible1 ? (
-                          <VisibilityOffOutlinedIcon
-                            onClick={handleChangeVisibility1}
-                            sx={{
-                              "&:hover": {
-                                cursor: "pointer",
-                              },
-                            }}
-                          />
-                        ) : (
-                          <RemoveRedEyeOutlinedIcon
-                            onClick={handleChangeVisibility1}
-                            sx={{
-                              "&:hover": {
-                                cursor: "pointer",
-                              },
-                            }}
-                          />
-                        )}
-                      </InputAdornment>
-                    ),
-                  }}
-                  InputLabelProps={{
-                    shrink: false,
-                    style: {
-                      color: "#949CA9",
-                      fontFamily: "Poppins",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                    },
-                  }}
-                  type={isVisible1 ? "text" : "password"}
-                  label={pswd === "" ? `${"Enter your password"}` : ""}
-                  name="password"
-                  value={pswd}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setPswd(event.target.value);
-                  }}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "242px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "5.5px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "#282828",
+                                        /* SubText */
+                                        fontFamily: "Poppins",
+                                        fontSize: "16px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "24px",
+                                    }}
+                                >
+                                    Password
+                                </Typography>
+                                <TextField
+                                    fullWidth
+                                    required
+                                    size="small"
+                                    // InputProps={{
+                                    //     endAdornment: (
+                                    //         <InputAdornment position="end">
+                                    //             {isVisible1 ? (
+                                    //                 <VisibilityOffOutlinedIcon
+                                    //                     onClick={handleChangeVisibility1}
+                                    //                     sx={{
+                                    //                         "&:hover": {
+                                    //                             cursor: "pointer",
+                                    //                         },
+                                    //                     }}
+                                    //                 />
+                                    //             ) : (
+                                    //                 <RemoveRedEyeOutlinedIcon
+                                    //                     onClick={handleChangeVisibility1}
+                                    //                     sx={{
+                                    //                         "&:hover": {
+                                    //                             cursor: "pointer",
+                                    //                         },
+                                    //                     }}
+                                    //                 />
+                                    //             )}
+                                    //         </InputAdornment>
+                                    //     ),
+                                    // }}
+                                    InputLabelProps={{
+                                        shrink: false,
+                                        style: {
+                                            color: "#949CA9",
+                                            fontFamily: "Poppins",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "24px",
+                                        },
+                                    }}
+                                    type="password"
+                                    label={pswd === "" ? `${"Enter your password"}` : ""}
+                                    name="password"
+                                    value={pswd}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                        setPswd(event.target.value);
+                                    }}
+                                />
+                            </Box>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    width: "242px",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "5.5px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        color: "#282828",
 
-                    /* SubText */
-                    // fontFamily: "Poppins",
-                    // fontSize: "16px",
-                    // fontStyle: "normal",
-                    // fontWeight: 400,
-                    // lineHeight: "24px",
-                  }}
-                >
-                  Confirm Password
-                </Typography>
-                <TextField
-                  fullWidth
-                  required
-                  size="small"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        {isVisible2 ? (
-                          <VisibilityOffOutlinedIcon
-                            onClick={handleChangeVisibility2}
+                                        /* SubText */
+                                        // fontFamily: "Poppins",
+                                        // fontSize: "16px",
+                                        // fontStyle: "normal",
+                                        // fontWeight: 400,
+                                        // lineHeight: "24px",
+                                    }}
+                                >
+                                    Confirm Password
+                                </Typography>
+                                <TextField
+                                    fullWidth
+                                    required
+                                    size="small"
+                                    // InputProps={{
+                                    //     endAdornment: (
+                                    //         <InputAdornment position="end">
+                                    //             {isVisible2 ? (
+                                    //                 <VisibilityOffOutlinedIcon
+                                    //                     onClick={handleChangeVisibility2}
+                                    //                     sx={{
+                                    //                         "&:hover": {
+                                    //                             cursor: "pointer",
+                                    //                         },
+                                    //                     }}
+                                    //                 />
+                                    //             ) : (
+                                    //                 <RemoveRedEyeOutlinedIcon
+                                    //                     onClick={handleChangeVisibility2}
+                                    //                     sx={{
+                                    //                         "&:hover": {
+                                    //                             cursor: "pointer",
+                                    //                         },
+                                    //                     }}
+                                    //                 />
+                                    //             )}
+                                    //         </InputAdornment>
+                                    //     ),
+                                    // }}
+                                    InputLabelProps={{
+                                        shrink: false,
+                                        style: {
+                                            color: "#949CA9",
+                                            fontFamily: "Poppins",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "24px",
+                                        },
+                                    }}
+                                    type="password"
+                                    label={confirmPswd === "" ? `${"Re-Enter your password"}` : ""}
+                                    name="confirm-password"
+                                    value={confirmPswd}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                        setConfirmPswd(event.target.value);
+                                    }}
+                                />
+                            </Box>
+                        </Box>
+                        <Button
+                            fullWidth
+                            size="large"
+                            variant="contained"
                             sx={{
-                              "&:hover": {
-                                cursor: "pointer",
-                              },
-                            }}
-                          />
-                        ) : (
-                          <RemoveRedEyeOutlinedIcon
-                            onClick={handleChangeVisibility2}
-                            sx={{
-                              "&:hover": {
-                                cursor: "pointer",
-                              },
-                            }}
-                          />
-                        )}
-                      </InputAdornment>
-                    ),
-                  }}
-                  InputLabelProps={{
-                    shrink: false,
-                    style: {
-                      color: "#949CA9",
-                      fontFamily: "Poppins",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                    },
-                  }}
-                  type={isVisible2 ? "text" : "password"}
-                  label={confirmPswd === "" ? `${"Re-Enter your password"}` : ""}
-                  name="confirm-password"
-                  value={confirmPswd}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setConfirmPswd(event.target.value);
-                  }}
-                />
-              </Box>
-            </Box>
-            <Button
-              fullWidth
-              size="large"
-              variant="contained"
-              sx={{
-                backgroundColor: "#1C4C82",
-              }} /* sx={{textTransform: "lowercase !important"}} */
-            >
-              <Typography
-                sx={{
-                  color: "#FFF",
-                  fontFamily: "Poppins",
-                  fontSize: "17.6px",
-                  fontStyle: "normal",
-                  fontWeight: "500",
-                  lineHeight: "26.4px",
-                }}
-              >
-                Sign Up
-              </Typography>
-            </Button>
-            {/*
+                                backgroundColor: "#1C4C82",
+                            }} /* sx={{textTransform: "lowercase !important"}} */
+                            onClick={onSubmit}
+                        >
+                            <Typography
+                                sx={{
+                                    color: "#FFF",
+                                    fontFamily: "Poppins",
+                                    fontSize: "17.6px",
+                                    fontStyle: "normal",
+                                    fontWeight: "500",
+                                    lineHeight: "26.4px",
+                                }}
+                            >
+                                Sign Up
+                            </Typography>
+                        </Button>
+                        {/*
             <Box
               sx={{
                 width: "506px",
@@ -472,42 +473,42 @@ function SignUpPage() {
                 </Typography>
               </Box>
                 </Box> */}
-          </Box>
-          <Typography
-            sx={{
-              color: "#282828",
-              /* SubText */
-              fontFamily: "Poppins",
-              fontSize: "16px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "24px",
-            }}
-          >
-            {" "}
-            Already a member?{" "}
-            <Link to="/login">
-              <Typography
-                component="span"
-                sx={{
-                  color: "#009EF7",
+                    </Box>
+                    <Typography
+                        sx={{
+                            color: "#282828",
+                            /* SubText */
+                            fontFamily: "Poppins",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                        }}
+                    >
+                        {" "}
+                        Already a member?{" "}
+                        <Link to="/login">
+                            <Typography
+                                component="span"
+                                sx={{
+                                    color: "#009EF7",
 
-                  /* SubText */
-                  fontFamily: "Poppins",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: "400",
-                  lineHeight: "24px",
-                }}
-              >
-                Login
-              </Typography>
-            </Link>
-          </Typography>
-        </Box>
-      </Box>
-    </>
-  );
+                                    /* SubText */
+                                    fontFamily: "Poppins",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: "400",
+                                    lineHeight: "24px",
+                                }}
+                            >
+                                Login
+                            </Typography>
+                        </Link>
+                    </Typography>
+                </Box>
+            </Box>
+        </>
+    );
 }
 
 export default SignUpPage;

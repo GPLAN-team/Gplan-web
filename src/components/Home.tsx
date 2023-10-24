@@ -10,18 +10,20 @@ import Footer from "./Footer";
 import SignUpPage from "./SignUpPage";
 import LoginPage from "./LoginPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./DashBoard";
 
 function Home() {
   return (
     <>
-    <Router>
-              <Routes>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/signup" element={<SignUpPage />} />
-              </Routes>
-          </Router>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
 
-    {/* <Navbar/>
+      {/* <Navbar/>
     <Section1/>
     <Box sx={{display:'flex', justifyContent:"center", my:'20px'}}><Typography variant="h3">Features</Typography></Box>
     
