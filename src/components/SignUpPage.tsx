@@ -44,7 +44,6 @@ function SignUpPage() {
           width: "100vw",
           background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
           backgroundSize: "cover",
-          mixBlendMode: "screen",
         }}
       >
         <Box

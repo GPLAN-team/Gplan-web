@@ -1,8 +1,14 @@
-import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import loginBG from "../public/loginBG.png";
 import googleLogo from "../public/googleLogo.png";
 import fbLogo from "../public/fbLogo.png";
@@ -13,13 +19,16 @@ function LoginPage() {
     password?: string;
   }
 
-  const [isVisible, setVisibility] = useState<Boolean>(false)
+  const [isVisible, setVisibility] = useState<Boolean>(false);
 
-  const [formValues, setFormValues] = useState<FormValues>({username:"", password:""});
+  const [formValues, setFormValues] = useState<FormValues>({
+    username: "",
+    password: "",
+  });
 
   const handleChangeVisibility = () => {
-    setVisibility(!isVisible)
-  }
+    setVisibility(!isVisible);
+  };
 
   const handleTextFieldChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,7 +42,7 @@ function LoginPage() {
 
   const handleOnSubmit = () => {
     // api call with form data stored in an array name FormValue with username and password as data
-  }
+  };
 
   return (
     <>
@@ -46,7 +55,6 @@ function LoginPage() {
           width: "100vw",
           background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
           backgroundSize: "cover",
-          mixBlendMode: "screen",
         }}
       >
         <Box
@@ -219,7 +227,7 @@ function LoginPage() {
                     lineHeight: "24px",
                   },
                 }}
-                label={formValues.username===""?"Enter your username":""}
+                label={formValues.username === "" ? "Enter your username" : ""}
                 name="username"
                 value={formValues.username}
                 onChange={handleTextFieldChange}
@@ -249,24 +257,31 @@ function LoginPage() {
                 Password
               </Typography>
               <TextField
-
                 fullWidth
                 required
                 size="small"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      {isVisible?<VisibilityOffOutlinedIcon onClick={handleChangeVisibility}
-                  sx={{
-                    "&:hover": {
-                      cursor: "pointer"
-                    }}
-                  }/>:<RemoveRedEyeOutlinedIcon onClick={handleChangeVisibility}
-                  sx={{
-                    "&:hover": {
-                      cursor: "pointer"
-                    }}
-                  }/>}
+                      {isVisible ? (
+                        <VisibilityOffOutlinedIcon
+                          onClick={handleChangeVisibility}
+                          sx={{
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          }}
+                        />
+                      ) : (
+                        <RemoveRedEyeOutlinedIcon
+                          onClick={handleChangeVisibility}
+                          sx={{
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          }}
+                        />
+                      )}
                     </InputAdornment>
                   ),
                 }}
@@ -281,8 +296,10 @@ function LoginPage() {
                     lineHeight: "24px",
                   },
                 }}
-                type={isVisible?"text":'password'}
-                label={formValues.password===""?`${"Enter your password"}`:""}
+                type={isVisible ? "text" : "password"}
+                label={
+                  formValues.password === "" ? `${"Enter your password"}` : ""
+                }
                 name="password"
                 value={formValues.password}
                 onChange={handleTextFieldChange}
@@ -393,20 +410,22 @@ function LoginPage() {
             {" "}
             New to GPlan?{" "}
             <Link to="/signup">
-            <Typography
-              component="span"
-              sx={{
-                color: "#009EF7",
+              <Typography
+                component="span"
+                sx={{
+                  color: "#009EF7",
 
-                /* SubText */
-                fontFamily: "Poppins",
-                fontSize: "16px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "24px",
-              }}
-            >
-              Get Started</Typography></Link>
+                  /* SubText */
+                  fontFamily: "Poppins",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "24px",
+                }}
+              >
+                Get Started
+              </Typography>
+            </Link>
           </Typography>
         </Box>
       </Box>
