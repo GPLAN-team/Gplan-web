@@ -230,7 +230,7 @@ const Graph = () => {
     let emitDataIrregular = () => {
         // No JSON Stringify needed when using emit
         let graphData = {
-            "multiple": false,
+            "multiple": true,
             "rectangular": false,
             "nodes": nodes,
             "edges": links
@@ -246,7 +246,7 @@ const Graph = () => {
     let emitDataRectangular = () => {
         // No JSON Stringify needed when using emit
         let graphData = {
-            "multiple": false,
+            "multiple": true,
             "rectangular": false,
             "nodes": nodes,
             "edges": links
