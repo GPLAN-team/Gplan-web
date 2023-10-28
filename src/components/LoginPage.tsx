@@ -303,6 +303,9 @@ function LoginPage() {
                 name="password"
                 value={formValues.password}
                 onChange={handleTextFieldChange}
+                sx={{"input::-ms-reveal, input::-ms-clear":{
+                  display: 'none'
+                }}}
               />
             </Box>
             <Button

@@ -297,6 +297,9 @@ function SignUpPage() {
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                     setPswd(event.target.value);
                   }}
+                  sx={{"input::-ms-reveal, input::-ms-clear":{
+                      display: 'none'
+                    }}}
                 />
               </Box>
               <Box
@@ -369,6 +372,9 @@ function SignUpPage() {
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                     setConfirmPswd(event.target.value);
                   }}
+                  sx={{"input::-ms-reveal, input::-ms-clear":{
+                    display: 'none'
+                  }}}
                 />
               </Box>
             </Box>
