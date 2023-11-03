@@ -37,7 +37,7 @@ function LoginPage() {
 
   const handleOnSubmit = () => {
     // api call with form data stored in an array name FormValue with username and password as data
-    axios.post('http://gplan.in/backend/auth/token/', {
+    axios.post('https://gplan.in/backend/auth/token/', {
             "username": formValues.username,
             "password": formValues.password
         }).then((resp) => {

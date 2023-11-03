@@ -28,7 +28,7 @@ function SignUpPage() {
     // console.log(confirmPswd);
 
     let onSubmit = () => {
-        axios.post("http://gplan.in/backend/auth/signup/", {
+        axios.post("https://gplan.in/backend/auth/signup/", {
             "username": name,
             "password": pswd
         })
@@ -487,7 +487,7 @@ function SignUpPage() {
                     >
                         {" "}
                         Already a member?{" "}
-                        <Link to="/login">
+                        <Link to="/">
                             <Typography
                                 component="span"
                                 sx={{

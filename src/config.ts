@@ -1,4 +1,4 @@
-const BASE_ADDR = 'http://gplan.in/backend/api/generate'
+const BASE_ADDR = 'https://gplan.in/backend/api/generate'
 const GRID_SNAP = 40
 
 /*

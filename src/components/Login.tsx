@@ -5,7 +5,7 @@ import Dashboard from "./DashBoard";
 
 function Login() {
     useEffect(() => {
-        axios.post('http://gplan.in/backend/auth/token/', {
+        axios.post('https://gplan.in/backend/auth/token/', {
             "username": "bhavy",
             "password": "Bhavy@goel17"
         }).then((resp) => {
