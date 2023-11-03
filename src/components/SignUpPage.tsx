@@ -28,7 +28,7 @@ function SignUpPage() {
     // console.log(confirmPswd);
 
     let onSubmit = () => {
-        axios.post("http://139.59.1.248/backend/auth/signup/", {
+        axios.post("http://gplan.in/backend/auth/signup/", {
             "username": name,
             "password": pswd
         })

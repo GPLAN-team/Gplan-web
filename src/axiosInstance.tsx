@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-    baseURL: 'http://139.59.1.248', 
+    baseURL: 'http://gplan.in', 
 });
 
 // Request interceptor
@@ -30,7 +30,7 @@ axiosInstance.interceptors.response.use(
 
         if (
             error.response.status === 401 &&
-            originalRequest.url === 'http://139.59.1.248/backend/auth/token/'
+            originalRequest.url === 'http://gplan.in/backend/auth/token/'
         ) {
             // router.push('/login')
             return Promise.reject(error)
@@ -43,7 +43,7 @@ axiosInstance.interceptors.response.use(
             
             const refreshToken = localStorage.getItem('refresh_token');
             return axios
-            .post('http://139.59.1.248/backend/auth/token/refresh/', {
+            .post('http://gplan.in/backend/auth/token/refresh/', {
                 "refresh": refreshToken
                 })
                 .then(res => {

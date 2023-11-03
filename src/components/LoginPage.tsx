@@ -37,7 +37,7 @@ function LoginPage() {
 
   const handleOnSubmit = () => {
     // api call with form data stored in an array name FormValue with username and password as data
-    axios.post('http://139.59.1.248/backend/auth/token/', {
+    axios.post('http://gplan.in/backend/auth/token/', {
             "username": formValues.username,
             "password": formValues.password
         }).then((resp) => {
@@ -49,7 +49,7 @@ function LoginPage() {
             // <Navigate to='/dashboard' replace = {true} />
         })
         .catch((error) => {
-          navigate("/login");
+          navigate("/");
           setFormValues({username:"", password:""})
         })
   }
