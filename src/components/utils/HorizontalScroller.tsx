@@ -11,7 +11,7 @@ import {
 
 import { styled } from "@mui/material/styles";
 
-import no_img from "../public/no-img.jpg";
+import no_img from "../../public/no-img.jpg";
 
 function HorizontalScroller() {
   const CardContentNoPadding = styled(CardContent)({
@@ -199,7 +199,7 @@ function HorizontalScroller() {
             <CardContentNoPadding>
               <CardMedia
                 component="img"
-                height="100px"
+                height="600px"
                 image={no_img}
                 sx={{ borderRadius: "2px" }}
               />

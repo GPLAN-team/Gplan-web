@@ -10,8 +10,6 @@ import { Link } from "react-router-dom";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import loginBG from "../public/loginBG.png";
-import googleLogo from "../public/googleLogo.png";
-import fbLogo from "../public/fbLogo.png";
 
 function LoginPage() {
   interface FormValues {
@@ -303,9 +301,11 @@ function LoginPage() {
                 name="password"
                 value={formValues.password}
                 onChange={handleTextFieldChange}
-                sx={{"input::-ms-reveal, input::-ms-clear":{
-                  display: 'none'
-                }}}
+                sx={{
+                  "input::-ms-reveal, input::-ms-clear": {
+                    display: "none",
+                  },
+                }}
               />
             </Box>
             <Button

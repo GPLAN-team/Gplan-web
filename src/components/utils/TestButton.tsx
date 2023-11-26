@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ReactNode } from "react";
 import { useState } from "react";
-import MagnetIcon from "./icons/MagnetIcon";
+import MagnetIcon from "../icons/MagnetIcon";
 import { Button } from "@mui/material";
 
 function TestButton(props: {
