@@ -45,8 +45,6 @@ function LoginPage() {
             localStorage.setItem('refresh_token', resp.data.refresh);
             console.log("login successful");
             navigate("/dashboard");
-            // return redirectDocument("/dashboard");
-            // <Navigate to='/dashboard' replace = {true} />
         })
         .catch((error) => {
           navigate("/");

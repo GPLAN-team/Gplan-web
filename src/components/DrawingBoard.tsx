@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { fabric } from 'fabric';
 import { Button, Buttons } from './Button'
-import { NameContext } from './DashBoard';
+import { ResponseContext } from './DashBoard';
 
 interface DrawingBoardProps {
     size: number;
@@ -13,7 +13,7 @@ export default function DrawingBoard({ size, snap }: DrawingBoardProps) {
     const [listRFP, setListRFP] = useState<any[]>([]);
     const [indexRFP, setIndexRFP] = useState<number>(0);
     const [gridIsOn, setGridIsOn] = useState<boolean>(true);
-    const { resp } = useContext(NameContext);
+    const { resp } = useContext(ResponseContext);
 
     const drawGrid = (canvas: fabric.Canvas) => {
         // Generate Grid Lines

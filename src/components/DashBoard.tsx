@@ -4,16 +4,16 @@ import Graph from './Graph'
 import DrawingBoard from './DrawingBoard'
 
 // Create a new context and export
-export const NameContext = createContext({ resp: [], setResp: ([]: any) => { } });
+export const ResponseContext = createContext({ resp: [], setResp: ([]: any) => { } });
 
 // Create a Context Provider
-const NameContextProvider = ({ children }: { children: any }) => {
+const ResponseContextProvider = ({ children }: { children: any }) => {
     const [resp, setResp] = useState([]);
 
     return (
-        <NameContext.Provider value={{ resp, setResp }}>
+        <ResponseContext.Provider value={{ resp, setResp }}>
             {children}
-        </NameContext.Provider>
+        </ResponseContext.Provider>
     );
 };
 
@@ -29,16 +29,16 @@ export default function Dashboard() {
                 <h1>GPLAN</h1>
                 <h3 className = "text-primary">Double click to insert a new node. Drag between nodes to add an edge</h3>
             </div>
-            <NameContextProvider>
+            <ResponseContextProvider>
                 <div className = "d-flex">
-                    <div className="col-5 px-0">
+                    <div className="col-5 px-0 ">
                         <Graph />
                     </div>
                     <div className="px-0">
                         <DrawingBoard size={600} snap={GRID_SNAP} />
                     </div>
                 </div>
-            </NameContextProvider >
+            </ResponseContextProvider >
         </>
     )
 }
