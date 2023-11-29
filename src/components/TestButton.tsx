@@ -11,32 +11,29 @@ function TestButton(props: {
   const [iconColor, setIconColor] = useState("black");
   const [bgColor, setbgColor] = useState("white");
   const [click, setClick] = useState("off");
-  const [didMount, setDidMount] = useState(false)
+  const [didMount, setDidMount] = useState(false);
 
   const child = React.cloneElement(props.children as React.ReactElement<any>, {
     color: iconColor,
   });
 
   useEffect(() => {
-    if (didMount === false){
-      setDidMount(true)
-    }
-    else{
-      (click === "on") &&
-      props.func(
-        "First Click => ON : function/feature from backend executes such as tool for editing floorplan"
-      );
-    (click === "off") &&
-      props.func(
-        "Second Click => OFF : function/feature from backend stops executing"
-      );
+    if (didMount === false) {
+      setDidMount(true);
+    } else {
+      click === "on" &&
+        props.func(
+          "First Click => ON : function/feature from backend executes such as tool for editing floorplan",
+        );
+      click === "off" &&
+        props.func(
+          "Second Click => OFF : function/feature from backend stops executing",
+        );
       console.log(click);
-    iconColor === "white" ? setIconColor("white") : setIconColor("black");
-    bgColor === "white" ? setbgColor("#1C4C82") : setbgColor("white");
+      iconColor === "white" ? setIconColor("white") : setIconColor("black");
+      bgColor === "white" ? setbgColor("#1C4C82") : setbgColor("white");
     }
-
-
-  }, [click])
+  }, [click]);
 
   const handleonClick = async () => {
     click === "off" ? setClick("on") : setClick("off");

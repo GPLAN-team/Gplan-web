@@ -1,9 +1,9 @@
 import SvgIcon from "@mui/material/SvgIcon";
 import React from "react";
 
-function MagnetIcon(props : {color: String}) {
+function MagnetIcon(props: { color: String }) {
   return (
-    <SvgIcon sx={{ color: `${props.color}`}}>
+    <SvgIcon sx={{ color: `${props.color}` }}>
       {/* credit: plus icon from https://heroicons.com/ */}
       <svg
         xmlns="http://www.w3.org/2000/svg"

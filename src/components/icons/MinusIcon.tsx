@@ -1,9 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon'
-import React from 'react'
+import SvgIcon from "@mui/material/SvgIcon";
+import React from "react";
 
-function MinusIcon(props : {color : String}) {
+function MinusIcon(props: { color: String }) {
   return (
-    <SvgIcon sx={{ color: `${props.color}`}}>
+    <SvgIcon sx={{ color: `${props.color}` }}>
       {/* credit: plus icon from https://heroicons.com/ */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -13,14 +13,10 @@ function MinusIcon(props : {color : String}) {
         strokeWidth={1.5}
         stroke="currentColor"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5 12.36H19"
-        />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12.36H19" />
       </svg>
     </SvgIcon>
-  )
+  );
 }
 
-export default MinusIcon
+export default MinusIcon;

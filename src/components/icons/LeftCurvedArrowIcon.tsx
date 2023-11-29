@@ -1,9 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon'
-import React from 'react'
+import SvgIcon from "@mui/material/SvgIcon";
+import React from "react";
 
-function LeftCurvedArrowIcon(props : {color : String}) {
+function LeftCurvedArrowIcon(props: { color: String }) {
   return (
-    <SvgIcon sx={{ color: `${props.color}`}}>
+    <SvgIcon sx={{ color: `${props.color}` }}>
       {/* credit: plus icon from https://heroicons.com/ */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -13,11 +13,7 @@ function LeftCurvedArrowIcon(props : {color : String}) {
         strokeWidth={1.5}
         stroke="currentColor"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 7V13H9"
-        />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 7V13H9" />
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -25,7 +21,7 @@ function LeftCurvedArrowIcon(props : {color : String}) {
         />
       </svg>
     </SvgIcon>
-  )
+  );
 }
 
-export default LeftCurvedArrowIcon
+export default LeftCurvedArrowIcon;

@@ -1,15 +1,20 @@
-import { Box, Button, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import loginBG from "../public/loginBG.png";
-import axios from 'axios';
+import axios from "axios";
 // import googleLogo from "../public/googleLogo.png";
 // import fbLogo from "../public/fbLogo.png";
 
 function LoginPage() {
-  
   const navigate = useNavigate();
 
   interface FormValues {
@@ -17,16 +22,19 @@ function LoginPage() {
     password?: string;
   }
 
-  const [isVisible, setVisibility] = useState<Boolean>(false)
+  const [isVisible, setVisibility] = useState<Boolean>(false);
 
-  const [formValues, setFormValues] = useState<FormValues>({username:"", password:""});
+  const [formValues, setFormValues] = useState<FormValues>({
+    username: "",
+    password: "",
+  });
 
   const handleChangeVisibility = () => {
-    setVisibility(!isVisible)
-  }
+    setVisibility(!isVisible);
+  };
 
   const handleTextFieldChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     setFormValues({
@@ -37,22 +45,24 @@ function LoginPage() {
 
   const handleOnSubmit = () => {
     // api call with form data stored in an array name FormValue with username and password as data
-    axios.post('https://gplan.in/backend/auth/token/', {
-            "username": formValues.username,
-            "password": formValues.password
-        }).then((resp) => {
-            localStorage.setItem('access_token', resp.data.access);
-            localStorage.setItem('refresh_token', resp.data.refresh);
-            console.log("login successful");
-            navigate("/dashboard");
-            // return redirectDocument("/dashboard");
-            // <Navigate to='/dashboard' replace = {true} />
-        })
-        .catch((error) => {
-          navigate("/");
-          setFormValues({username:"", password:""})
-        })
-  }
+    axios
+      .post("https://gplan.in/backend/auth/token/", {
+        username: formValues.username,
+        password: formValues.password,
+      })
+      .then((resp) => {
+        localStorage.setItem("access_token", resp.data.access);
+        localStorage.setItem("refresh_token", resp.data.refresh);
+        console.log("login successful");
+        navigate("/dashboard");
+        // return redirectDocument("/dashboard");
+        // <Navigate to='/dashboard' replace = {true} />
+      })
+      .catch((error) => {
+        navigate("/");
+        setFormValues({ username: "", password: "" });
+      });
+  };
 
   return (
     <>
@@ -237,7 +247,7 @@ function LoginPage() {
                     lineHeight: "24px",
                   },
                 }}
-                label={formValues.username===""?"Enter your username":""}
+                label={formValues.username === "" ? "Enter your username" : ""}
                 name="username"
                 value={formValues.username}
                 onChange={handleTextFieldChange}
@@ -267,24 +277,31 @@ function LoginPage() {
                 Password
               </Typography>
               <TextField
-
                 fullWidth
                 required
                 size="small"
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      {isVisible?<VisibilityOffOutlinedIcon onClick={handleChangeVisibility}
-                  sx={{
-                    "&:hover": {
-                      cursor: "pointer"
-                    }}
-                  }/>:<RemoveRedEyeOutlinedIcon onClick={handleChangeVisibility}
-                  sx={{
-                    "&:hover": {
-                      cursor: "pointer"
-                    }}
-                  }/>}
+                      {isVisible ? (
+                        <VisibilityOffOutlinedIcon
+                          onClick={handleChangeVisibility}
+                          sx={{
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          }}
+                        />
+                      ) : (
+                        <RemoveRedEyeOutlinedIcon
+                          onClick={handleChangeVisibility}
+                          sx={{
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          }}
+                        />
+                      )}
                     </InputAdornment>
                   ),
                 }}
@@ -299,8 +316,10 @@ function LoginPage() {
                     lineHeight: "24px",
                   },
                 }}
-                type={isVisible?"text":'password'}
-                label={formValues.password===""?`${"Enter your password"}`:""}
+                type={isVisible ? "text" : "password"}
+                label={
+                  formValues.password === "" ? `${"Enter your password"}` : ""
+                }
                 name="password"
                 value={formValues.password}
                 onChange={handleTextFieldChange}
@@ -313,7 +332,7 @@ function LoginPage() {
               variant="contained"
               sx={{
                 backgroundColor: "#1C4C82",
-              }} /* sx={{textTransform: "lowercase !important"}} */
+              }}
             >
               <Typography
                 sx={{
@@ -328,74 +347,6 @@ function LoginPage() {
                 Login
               </Typography>
             </Button>
-            {/*
-            <Box
-              sx={{
-                width: "506px",
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "22px",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "242px",
-                  padding: "16.5px",
-                  alignItems: "center",
-                  gap: "11px",
-                  borderRadius: "8px",
-                  border: "1.1px solid #E8E9EA",
-                  background: "#FFF",
-                }}
-              >
-                <img src={`${googleLogo}`} alt="" height="22px" width="22px" />
-                <Typography
-                  sx={{
-                    flex: "1 0 0",
-                    color: "#282828",
-                    fontFeatureSettings: `'clig' off, 'liga' off`,
-                   
-                    fontFamily: "Poppins",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "22px",
-                  }}
-                >
-                  Login with Google
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "242px",
-                  padding: "16.5px",
-                  alignItems: "center",
-                  gap: "11px",
-                  borderRadius: "8px",
-                  border: "1.1px solid #E8E9EA",
-                  background: "#FFF",
-                }}
-              >
-                <img src={`${fbLogo}`} alt="" height="22px" width="22px" />
-                <Typography
-                  sx={{
-                    flex: "1 0 0",
-                    color: "#282828",
-                    fontFeatureSettings: `'clig' off, 'liga' off`,
-                  
-                    fontFamily: "Poppins",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "22px",
-                  }}
-                >
-                  Login with Facebook
-                </Typography>
-              </Box>
-                </Box> */}
           </Box>
           <Typography
             sx={{
@@ -411,20 +362,22 @@ function LoginPage() {
             {" "}
             New to GPlan?{" "}
             <Link to="/signup">
-            <Typography
-              component="span"
-              sx={{
-                color: "#009EF7",
+              <Typography
+                component="span"
+                sx={{
+                  color: "#009EF7",
 
-                /* SubText */
-                fontFamily: "Poppins",
-                fontSize: "16px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "24px",
-              }}
-            >
-              Get Started</Typography></Link>
+                  /* SubText */
+                  fontFamily: "Poppins",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "24px",
+                }}
+              >
+                Get Started
+              </Typography>
+            </Link>
           </Typography>
         </Box>
       </Box>

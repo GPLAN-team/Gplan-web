@@ -30,7 +30,7 @@ function Section2() {
       rowSpacing={8}
       columnSpacing={16}
       sx={{
-        padding: "50px 64px"
+        padding: "50px 64px",
       }}
     >
       <Grid item sm={4} xs={12}>

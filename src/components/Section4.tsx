@@ -40,8 +40,16 @@ function Section4() {
           <Box sx={{ display: "flex", flex: "1" }}>
             <Box
               sx={{ flex: "1", backgroundColor: "#DDD", marginRight: "8px" }}
-            ><Typography my={18} mx={10}>Our Team</Typography></Box>
-            <Box sx={{ flex: "1", backgroundColor: "#DDD" }}><Typography my={18} mx={7}>What we are upto</Typography></Box>
+            >
+              <Typography my={18} mx={10}>
+                Our Team
+              </Typography>
+            </Box>
+            <Box sx={{ flex: "1", backgroundColor: "#DDD" }}>
+              <Typography my={18} mx={7}>
+                What we are upto
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
