@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import logo from "../public/logo.png";
+import logo from "../resources/logo.png";
 
 function Dropmenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

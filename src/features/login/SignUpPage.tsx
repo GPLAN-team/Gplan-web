@@ -7,62 +7,43 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import loginBG from "../public/loginBG.png";
+
+// import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+// import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import loginBG from "/resources/loginBG.png";
+// import googleLogo from "../resources/googleLogo.png";
+// import fbLogo from "../resources/fbLogo.png";
 import axios from "axios";
-// import googleLogo from "../public/googleLogo.png";
-// import fbLogo from "../public/fbLogo.png";
 
-function LoginPage() {
+function SignUpPage() {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [pswd, setPswd] = useState("");
+  const [confirmPswd, setConfirmPswd] = useState("");
+  // const [isVisible1, setvisibility1] = useState(false);
+  // const [isVisible2, setvisibility2] = useState(false);
 
-  interface FormValues {
-    username?: string;
-    password?: string;
-  }
+  // console.log(name);
+  // console.log(pswd);
+  // console.log(confirmPswd);
 
-  const [isVisible, setVisibility] = useState<Boolean>(false);
-
-  const [formValues, setFormValues] = useState<FormValues>({
-    username: "",
-    password: "",
-  });
-
-  const handleChangeVisibility = () => {
-    setVisibility(!isVisible);
-  };
-
-  const handleTextFieldChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
-
-  const handleOnSubmit = () => {
-    // api call with form data stored in an array name FormValue with username and password as data
+  let onSubmit = () => {
     axios
-      .post("https://gplan.in/backend/auth/token/", {
-        username: formValues.username,
-        password: formValues.password,
+      .post("https://gplan.in/backend/auth/signup/", {
+        username: name,
+        password: pswd,
       })
-      .then((resp) => {
-        localStorage.setItem("access_token", resp.data.access);
-        localStorage.setItem("refresh_token", resp.data.refresh);
-        console.log("login successful");
+      .then(() => {
         navigate("/dashboard");
-        // return redirectDocument("/dashboard");
-        // <Navigate to='/dashboard' replace = {true} />
-      })
-      .catch((error) => {
-        navigate("/");
-        setFormValues({ username: "", password: "" });
       });
   };
+  // const handleChangeVisibility1 = () => {
+  //     setvisibility1(!isVisible1);
+  // };
+
+  // const handleChangeVisibility2 = () => {
+  //     setvisibility2(!isVisible2);
+  // };
 
   return (
     <>
@@ -73,7 +54,7 @@ function LoginPage() {
           justifyContent: "center",
           height: "100vh",
           width: "100vw",
-          background: `url(${loginBG}) , lightgray 50% / cover no-repeat`,
+          background: `url(${loginBG}), lightgray 50% / cover no-repeat`,
           backgroundSize: "cover",
         }}
       >
@@ -169,7 +150,7 @@ function LoginPage() {
                 lineHeight: "39.6px" /* 150% */,
               }}
             >
-              Jump Right Back into
+              Start Your Journey With
               <Typography
                 component="span"
                 sx={{
@@ -183,7 +164,7 @@ function LoginPage() {
                 }}
               >
                 {" "}
-                GPlan
+                GPLAN
               </Typography>
             </Typography>
             <Typography
@@ -197,7 +178,7 @@ function LoginPage() {
                 lineHeight: "24px" /* 150% */,
               }}
             >
-              Login To Your Account
+              Lets Design Something Great
             </Typography>
           </Box>
           <Box
@@ -241,98 +222,121 @@ function LoginPage() {
                   style: {
                     color: "#949CA9",
                     fontFamily: "Poppins",
-                    fontSize: "14px",
+                    fontSize: "16px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "24px",
                   },
                 }}
-                label={formValues.username === "" ? "Enter your username" : ""}
-                name="username"
-                value={formValues.username}
-                onChange={handleTextFieldChange}
+                placeholder="Enter your username"
+                id="fullWidth name"
+                value={name}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  setName(event.target.value);
+                }}
               />
             </Box>
             <Box
-              sx={{
-                display: "flex",
-                width: "100%",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "5.5px",
-              }}
+              sx={{ display: "flex", alignItems: "flex-start", gap: "22px" }}
             >
-              <Typography
+              <Box
                 sx={{
-                  color: "#282828",
-
-                  /* SubText */
-                  fontFamily: "Poppins",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "24px",
+                  display: "flex",
+                  width: "242px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "5.5px",
                 }}
               >
-                Password
-              </Typography>
-              <TextField
-                fullWidth
-                required
-                size="small"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      {isVisible ? (
-                        <VisibilityOffOutlinedIcon
-                          onClick={handleChangeVisibility}
-                          sx={{
-                            "&:hover": {
-                              cursor: "pointer",
-                            },
-                          }}
-                        />
-                      ) : (
-                        <RemoveRedEyeOutlinedIcon
-                          onClick={handleChangeVisibility}
-                          sx={{
-                            "&:hover": {
-                              cursor: "pointer",
-                            },
-                          }}
-                        />
-                      )}
-                    </InputAdornment>
-                  ),
-                }}
-                InputLabelProps={{
-                  shrink: false,
-                  style: {
-                    color: "#949CA9",
+                <Typography
+                  sx={{
+                    color: "#282828",
+
+                    /* SubText */
                     fontFamily: "Poppins",
-                    fontSize: "14px",
+                    fontSize: "16px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "24px",
-                  },
+                  }}
+                >
+                  Password
+                </Typography>
+                <TextField
+                  fullWidth
+                  required
+                  size="small"
+                  InputLabelProps={{
+                    shrink: false,
+                    style: {
+                      color: "#949CA9",
+                      fontFamily: "Poppins",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    },
+                  }}
+                  type="password"
+                  label={pswd === "" ? `${"Enter your password"}` : ""}
+                  name="password"
+                  value={pswd}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setPswd(event.target.value);
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  width: "242px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "5.5px",
                 }}
-                type={isVisible ? "text" : "password"}
-                label={
-                  formValues.password === "" ? `${"Enter your password"}` : ""
-                }
-                name="password"
-                value={formValues.password}
-                onChange={handleTextFieldChange}
-              />
+              >
+                <Typography
+                  sx={{
+                    color: "#282828",
+                  }}
+                >
+                  Confirm Password
+                </Typography>
+                <TextField
+                  fullWidth
+                  required
+                  size="small"
+                  InputLabelProps={{
+                    shrink: false,
+                    style: {
+                      color: "#949CA9",
+                      fontFamily: "Poppins",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    },
+                  }}
+                  type="password"
+                  label={
+                    confirmPswd === "" ? `${"Re-Enter your password"}` : ""
+                  }
+                  name="confirm-password"
+                  value={confirmPswd}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setConfirmPswd(event.target.value);
+                  }}
+                />
+              </Box>
             </Box>
             <Button
               fullWidth
               size="large"
-              onClick={handleOnSubmit}
               variant="contained"
               sx={{
                 backgroundColor: "#1C4C82",
-              }}
+              }} /* sx={{textTransform: "lowercase !important"}} */
+              onClick={onSubmit}
             >
               <Typography
                 sx={{
@@ -344,7 +348,7 @@ function LoginPage() {
                   lineHeight: "26.4px",
                 }}
               >
-                Login
+                Sign Up
               </Typography>
             </Button>
           </Box>
@@ -360,8 +364,8 @@ function LoginPage() {
             }}
           >
             {" "}
-            New to GPlan?{" "}
-            <Link to="/signup">
+            Already a member?{" "}
+            <Link to="/">
               <Typography
                 component="span"
                 sx={{
@@ -375,7 +379,7 @@ function LoginPage() {
                   lineHeight: "24px",
                 }}
               >
-                Get Started
+                Login
               </Typography>
             </Link>
           </Typography>
@@ -385,4 +389,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignUpPage;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import axiosInstance from '../axiosInstance';
 import axios from "axios";
-import Dashboard from "./DashBoard";
+import Dashboard from "../dashboard/components/DashBoard";
 
 function Login() {
   useEffect(() => {

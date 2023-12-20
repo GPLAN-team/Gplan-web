@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import * as d3 from "d3";
-import { Button, Buttons } from "./Button";
-import { BASE_ADDR } from "../config";
+import { Button, Buttons } from "../../../components/Button";
+import { BASE_ADDR } from "../../../config";
 import { NameContext } from "./DashBoard";
-import axiosInstance from "../axiosInstance";
+import axiosInstance from "../../../axiosInstance";
 import axios from "axios";
 // import LocalStorageService from './services/storage/localstorageservice'
 

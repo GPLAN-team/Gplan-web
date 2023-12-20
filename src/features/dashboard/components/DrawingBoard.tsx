@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { fabric } from "fabric";
-import { Button, Buttons } from "./Button";
+import { Button, Buttons } from "../../../components/Button";
 import { NameContext } from "./DashBoard";
 
 interface DrawingBoardProps {

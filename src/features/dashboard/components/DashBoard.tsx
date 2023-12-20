@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import { GRID_SNAP } from "../config";
+import { GRID_SNAP } from "../../../config";
 import Graph from "./Graph";
 import DrawingBoard from "./DrawingBoard";
 
