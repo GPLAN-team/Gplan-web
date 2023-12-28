@@ -1,0 +1,38 @@
+#macNode {
+    animation: slide-up-fade-in 1s forwards, slide-up-fade-out 1s forwards;
+    animation-delay: 0s, 2.5s;
+}
+
+#plan {
+    animation: slide-up-fade-in-plan 1s forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes slide-up-fade-in {
+    0% {
+        margin-top: 100%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 17%;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up-fade-in-plan {
+
+    100% {
+        margin-top: 33%;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up-fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        margin-top: -100%;
+        opacity: 0;
+    }
+}

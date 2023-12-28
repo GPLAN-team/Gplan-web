@@ -2,12 +2,11 @@ import { Box, Fade, Grid, InputAdornment, Link, Slide, TextField, Typography } f
 import React, {useState} from "react";
 import landingBG from "../../public/landingBG.png";
 import { useInView } from "react-intersection-observer";
-import Test from "./Test";
+import Test from "./Test2";
 import component1 from "../../public/component1.png";
 import component2 from "../../public/component2.png";
 import component3 from "../../public/component3.png";
 import bgL1 from "../../public/bgL1.png";
-import Section4 from "./Section4";
 
 function HeroSection() {
   const { ref: imageRef, inView: imageIsVisible } = useInView({
@@ -350,7 +349,8 @@ function HeroSection() {
           </Box>
         </Box>
       </Box>
-      <Test></Test>
+      <div style={{marginTop:"-20%"}}>
+      <Test></Test></div>
       <Box
         sx={{
           textAlign: "center",
