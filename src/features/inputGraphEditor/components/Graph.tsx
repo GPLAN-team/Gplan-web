@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import * as d3 from "d3";
-import { Button, Buttons } from "../../../components/Button";
+import { Button, Buttons } from "../../../common-components/Button";
 import { BASE_ADDR } from "../../../config";
 import { NameContext } from "./DashBoard";
 import axiosInstance from "../../../axiosInstance";

@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 // import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 // import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import loginBG from "/resources/loginBG.png";
+import loginBG from "../../assets/loginBG.png";
 // import googleLogo from "../resources/googleLogo.png";
 // import fbLogo from "../resources/fbLogo.png";
 import axios from "axios";
