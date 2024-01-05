@@ -1,5 +1,5 @@
 import { Box, Fade, Grid, InputAdornment, Link, Slide, TextField, Typography } from "@mui/material";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import landingBG from "../../public/landingBG.png";
 import { useInView } from "react-intersection-observer";
 import Test from "./Test2";
@@ -349,14 +349,14 @@ function HeroSection() {
           </Box>
         </Box>
       </Box>
-      <div style={{marginTop:"-20%"}}>
-      <Test></Test></div>
+      <div style={{ marginTop: "-20%" }}>
+        <Test></Test></div>
       <Box
         sx={{
           textAlign: "center",
           mt: "190px ",
           display: { xs: "none", sm: "block" },
-          whiteSpace:"nowrap"
+          whiteSpace: "nowrap"
         }}
       >
         <Typography
@@ -431,7 +431,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           Quickly{" "}
@@ -457,7 +457,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           generate and Edit
@@ -470,7 +470,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           Floorplans. Getting your
@@ -483,7 +483,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           ideas from your brain to
@@ -496,7 +496,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           your tool was never this
@@ -509,7 +509,7 @@ function HeroSection() {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "normal",
-            ml:"6.25%",
+            ml: "6.25%",
           }}
         >
           fast
@@ -627,8 +627,145 @@ function HeroSection() {
           </Box>
         </Grid>
       </Grid>
+      <Grid
+        spacing={5}
+        sx={{
+          backgroundColor: "#fff",
+          pl: "7%",
+          pr: "7%",
+          pb: "32px",
+          mb: "36px",
+          mt: "36px",
+        }}
+      >
+        <Typography
+          sx={{
+            textAlign: "left",
+            fontFamily: "Bebas Neue",
+            fontSize: { xs: "27px", sm: "56px" },
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "normal",
+            marginBottom: "20px",
+          }}
+        >
+          <Grid container>
+            <Box sx={{ color: "black", marginRight: "4px" }}>Our</Box>
+            <Box sx={{ color: { xs: "#1C4C82", sm: "black" } }}>Story</Box>
+          </Grid>
+        </Typography>
 
-      <Box
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6.9} sx={{ height: '100%' }}>
+            <Box
+              sx={{
+                borderRadius: '8px',
+              }}
+            >
+              <svg width="100%" height="auto" viewBox="0 0 910 792">
+                <rect width="100%" height="100%" fill="#DDDDDD" rx="8" ry="8"/>
+              </svg>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={5.1}>
+            <Grid
+              container
+              spacing={2}
+              alignContent="space-between"
+              style={{ height: '100%' }}
+            >
+              <Grid item xs={12}>
+                <Box
+                  sx={{
+                    background: '#F2F7FC',
+                    paddingTop: '20px',
+                    paddingBottom: '20px',
+                    paddingLeft: '20px',
+                    paddingRight: '20px',
+                    borderRadius: '8px',
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "#4F4F4F",
+                      textAlign: "left",
+                      fontFamily: "Montserrat",
+                      fontSize: { xs: "16px", sm: "20px" },
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "normal",
+                    }}
+                  >
+                    Born in the desert sands of BITS Pilani, India, GPLAN is the brainchild of Prof. Krishnendra Shekhawat, an esteemed mathematics professor, and his students.
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid sx={{ height: '100%' }} container spacing={2} >
+                  <Grid item xs={6}>
+                    <Box
+                      sx={{
+                        background: '#DDDDDD',
+                        paddingTop: '5px',
+                        paddingBottom: '5px',
+                        height: '200px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: '8px',
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: "black",
+                          textAlign: "center",
+                          fontFamily: "Inter",
+                          fontSize: { xs: "16px", sm: "20px" },
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "normal",
+                        }}
+                      >
+                        Our Team
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Box
+                      sx={{
+                        background: '#DDDDDD',
+                        paddingTop: '5px',
+                        paddingBottom: '5px',
+                        height: '200px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: '8px',
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: "black",
+                          textAlign: "center",
+                          fontFamily: "Inter",
+                          fontSize: { xs: "16px", sm: "20px" },
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "normal",
+                        }}
+                      >
+                        What we are Up to
+                      </Typography>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      {/* <Box
         sx={{
           mb:"58px",
           backgroundColor: "#1C4C82",
@@ -639,8 +776,8 @@ function HeroSection() {
           flexDirection: "column",
           alignItems: "center",
         }}
-      >
-        <Box sx={{ mt: "58px", }}>
+      > */}
+      {/* <Box sx={{ mt: "58px", }}>
           <Typography
             sx={{
               color: "white",
@@ -654,8 +791,8 @@ function HeroSection() {
           >
             Get Started with GPLAN
           </Typography>
-        </Box>
-        <Box
+        </Box> */}
+      {/* <Box
           sx={{
             border: "none",
             mt: "32px",
@@ -723,8 +860,8 @@ function HeroSection() {
             onChange={handleEmailChange}
             sx={{ backgroundColor: "white" }}
           />
-        </Box>
-      </Box>
+        </Box> */}
+      {/* </Box> */}
     </>
   );
 }
