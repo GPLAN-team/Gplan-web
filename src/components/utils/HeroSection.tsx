@@ -7,7 +7,9 @@ import component1 from "../../public/component1.png";
 import component2 from "../../public/component2.png";
 import component3 from "../../public/component3.png";
 import video_placeholder from "../../public/video_placeholder.svg";
+import video_placeholder_box from "../../public/video_placeholder_box.svg";
 import bgL1 from "../../public/bgL1.png";
+import GuidedVideos from "./GuidedVideos";
 
 function HeroSection() {
   const { ref: imageRef, inView: imageIsVisible } = useInView({
@@ -676,15 +678,16 @@ function HeroSection() {
             }}
           >
             <Box
-            sx={{
-              height: {xs: "400px", sm: "500px"},
-            }}
+              sx={{
+                height: { xs: "400px", sm: "500px" },
+              }}
             >
               <img src={video_placeholder} height="100%" width="auto" alt="" />
             </Box>
           </Box>
         </Box>
       </Grid>
+      <GuidedVideos/>
       <Grid
         spacing={5}
         sx={{
@@ -712,8 +715,6 @@ function HeroSection() {
             <Box sx={{ color: { xs: "#1C4C82", sm: "black" } }}>Story</Box>
           </Grid>
         </Typography>
-
-
         <Grid container spacing={2}>
           <Grid item xs={12} md={6.9} sx={{ height: '100%' }}>
             <Box
