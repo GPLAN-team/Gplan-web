@@ -1,38 +1,656 @@
+/* --NAVBAR STARTS-- */
+
+.NavMain {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.Toolbar {
+  display: flex;
+  height: 94px;
+  padding: 3px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.DrawerOuterDiv {
+  background-color: #1c4c82;
+  text-align: center;
+  box-shadow: none;
+}
+
+.DrawerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0px 16px;
+}
+
+.LogoBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.DrawerButtons {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 24px;
+}
+
+.NavButtons {
+  color: #1c4c82;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.NavButtons:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2.5px;
+  cursor: pointer;
+}
+
+.NavLoginButton {
+  background-color: #1c4c82;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.DrawerLogoText {
+  color: white;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.NavLogoText {
+  color: #1c4c82;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  user-select: none;
+}
+
+.NavGplanLogo {
+  color: #1c4c82;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.NavButtonBox {
+  align-items: center;
+  gap: 34px;
+}
+
+/* --NAVBAR ENDS-- */
+
+/* --Hero-Section Starts-- */
+
+.landing-background {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  top: 0;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.outer-hero-typography {
+  margin: 0px 24px;
+  padding: 0px 24px;
+  margin-top: 150px;
+  z-index: 1;
+}
+
+.hero-subtext {
+  color: #828282;
+  margin: 0px;
+  margin-bottom: 8px;
+  font-family: "Montserrat";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.hero-maintext-black {
+  color: #222;
+  margin: 0px;
+  font-family: "Bebas Neue";
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.hero-maintext-blue {
+  color: #1c4c82;
+  margin: 0px;
+  font-family: "Bebas Neue";
+  font-size: 128px;
+  font-style: normal;
+  line-height: 100%;
+  font-weight: 400;
+}
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background-color: #222;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  border-radius: 16px;
+  padding: 52px 64px;
+  margin-top: 56px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.outer-hero-mobile-typography {
+  margin-top: 128px;
+  padding: 0px 24px;
+}
+
+.hero-mobile-maintext-black {
+  color: #333;
+  margin: 0px;
+  font-family: "Bebas Neue";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 76.8px */
+}
+
+.hero-mobile-maintext-blue {
+  color: #1c4c82;
+  margin: 0px;
+  font-family: "Bebas Neue";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.mobile-hero-lower-div {
+  margin-top: -24px;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mobile-hero-subtext {
+  color: #828282;
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.mobile-hero-button {
+  display: flex;
+  border-radius: 16px;
+  color: #fff;
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: #222;
+  width: 342px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  flex-shrink: 0;
+}
+
+/* --Hero-Section Ends-- */
+
+/* --MacPhoto-Section Starts- */
+
+.mac-outer-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 128px;
+  margin-bottom: 64px;
+}
+
+.mac-inner-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mac-screen-div {
+  position: absolute;
+  top: 5%;
+  overflow: hidden;
+  height: 77%;
+  width: auto;
+}
+
+.svg-div {
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  z-index: -1;
+}
+
+.mac-mobile-outer-div {
+  position: relative;
+  margin: 0px;
+  margin-top: 64px;
+}
+
+.mac-mobile-upper-image {
+  margin-right: 0px;
+  float: right;
+}
+
+.mac-mobile-lower-image {
+  margin-top: -130px;
+  float: left;
+}
+
+
+.mac-mobile-upper-wave-image {
+  position: absolute;
+  top: 150px;
+  z-index: -1;
+}
+
+.mac-mobile-lower-wave-image {
+  position: absolute;
+  top: 340px;
+  z-index: -1;
+}
+
 #macNode {
-    animation: slide-up-fade-in 1s forwards, slide-up-fade-out 1s forwards;
-    animation-delay: 0s, 2.5s;
+  margin-left: 5%;
+  animation: slide-up-fade-in 1s forwards, slide-up-fade-out 1s forwards;
+  animation-delay: 0s, 2.5s;
 }
 
 #plan {
-    animation: slide-up-fade-in-plan 1s forwards;
-    animation-delay: 2.5s;
+  margin-left: 5%;
+  margin-top: 190%;
+  animation: slide-up-fade-in-plan 1s forwards;
+  animation-delay: 2.5s;
 }
 
 @keyframes slide-up-fade-in {
-    0% {
-        margin-top: 100%;
-        opacity: 0;
-    }
-    100% {
-        margin-top: 17%;
-        opacity: 1;
-    }
+  0% {
+    margin-top: 100%;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 17%;
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up-fade-in-plan {
-
-    100% {
-        margin-top: 33%;
-        opacity: 1;
-    }
+  100% {
+    margin-top: 33%;
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up-fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        margin-top: -100%;
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: -100%;
+    opacity: 0;
+  }
 }
+
+/* --MacPhoto-Section Ends-- */
+
+/* --InfoSection Ends-- */
+
+.info-grid-container {
+  background-color: #1c4c82;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-bottom: 32px;
+  margin-bottom: 36px;
+}
+
+.info-grid-box {
+  border-radius: 16px;
+  background: #f2f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.info-text {
+  margin-top: 16px;
+  color: #1c4c82;
+  text-align: center;
+  font-family: "Lato";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.24px;
+  text-transform: capitalize;
+}
+
+/* --InfoSection Ends-- */
+
+/* --GetStarted Starts-- */
+
+.get-started-outer-div {
+  margin-bottom: 58px;
+  background-color: #1c4c82;
+  background-image: url("../public/bgL1.png"), url("../public/bgL1.png");
+  background-repeat: no-repeat;
+  background-position: left top, 970px -350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.get-started-heading {
+  color: white;
+  margin: 58px 0px 0px 0px;
+  text-align: center;
+  font-family: "Bebas Neue";
+  /* fontSize: { xs: "27px", sm: "64px" }; */
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.text-field-div {
+  border: none;
+  margin-top: 32px;
+  margin-bottom: 58px;
+}
+
+.text-field-img {
+  margin-right: -16px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input-label-props {
+  color: #949ca9;
+  margin-top: 5px;
+  margin-left: 3px;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* --GetStarted Ends-- */
+
+/* --Footer Starts-- */
+
+.footer-outer-div {
+  background-color: #1c4c82;
+  background-image: url("../public/bgL1.png"), url("../public/bgL1.png");
+  background-repeat: no-repeat;
+  background-position: left center, 970px -300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 82px;
+}
+
+.footer-logo-text {
+  color: #fff;
+  margin: 0px;
+  font-family: "Barlow Semi Condensed";
+  font-size: 37.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.footer-heading {
+  color: white;
+  margin: 0px;
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-bottom-social-link-div {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 53px;
+  margin-top: 64px;
+  margin-bottom: 32px;
+}
+
+.footer-social-links {
+  color: #fff;
+  margin: 0px;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+/* --Footer Ends-- */
+
+/* --Pricing Starts-- */
+.pricing-main-heading {
+  color: #000;
+  font-family: Bebas Neue;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.pricing-outer-div {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-200, #eaecf0);
+  background: var(--Pure-White, #fff);
+  box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03),
+    0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+  position: relative;
+}
+
+.pricing-header-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 32px 0px 32px;
+  overflow: hidden;
+}
+
+.pricing-header-heading {
+  margin: 0px;
+  color: #0a0a0a;
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 150% */
+}
+
+.pricing-header-price {
+  margin: 0px;
+  color: var(--Neutral-100, #0a0a0a);
+  text-align: center;
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px; /* 125% */
+  letter-spacing: -0.96px;
+  
+}
+
+.pricing-header-supporting-text {
+  margin: 0px;
+  color: var(--Neutral-90, #404040);
+  text-align: center;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  margin-top: 8px;
+}
+
+.pricing-content-div {
+  display: flex;
+  padding: 32px 24px 12px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+  overflow: scroll;
+}
+
+.pricing-content-div::-webkit-scrollbar {
+  display: none;
+}
+
+.pricing-content-heading {
+  color: var(--Neutral-90, #404040);
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  margin: 0px 0px 12px 0px;
+}
+
+.pricing-feature-line {
+  display: flex;
+  align-items: center;
+}
+
+.pricing-feature-text {
+  color: #404040;
+  margin: 0px;
+  margin-left: 8px;
+  display: inline-block;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.pricing-footer-div {
+  background: var(--Gray-50, #f9fafb);
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.pricing-footer-button {
+  border-radius: 24px;
+  border: 1px solid var(--Primary, #1c4c82);
+  background: var(--Primary, #1c4c82);
+  color: var(--White, var(--Pure-White, #fff));
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 12px 84px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.pricing-top-right-corner-div {
+  display: inline-block;
+  background: var(--Primary, #1c4c82);
+  border-radius: 36px;
+  padding: 3px 18px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+.pricing-top-right-corner-div p {
+  color: var(--Pure-White, #fff);
+  font-family: Bebas Neue;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+}
+
+/* --Footer Ends-- */

@@ -1,14 +1,12 @@
 import { SvgIcon } from "@mui/material";
 import React from "react";
 
-function GplanIcon() {
+function GplanIconBlue() {
   return (
-    <SvgIcon>
+    <SvgIcon fontSize="large">
       <svg
-        width="49"
-        height="50"
         viewBox="0 0 49 50"
-        fill="none"
+        fill="white"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g id="Frame 10">
@@ -86,4 +84,4 @@ function GplanIcon() {
   );
 }
 
-export default GplanIcon;
+export default GplanIconBlue;

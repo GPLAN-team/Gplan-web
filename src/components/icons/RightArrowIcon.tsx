@@ -4,7 +4,6 @@ import React from "react";
 function RightArrowIcon(props : {color : String}) {
   return (
     <SvgIcon sx={{ color: `${props.color}`}}>
-      {/* credit: plus icon from https://heroicons.com/ */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
