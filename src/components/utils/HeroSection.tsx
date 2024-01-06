@@ -703,7 +703,7 @@ function HeroSection() {
           sx={{
             textAlign: "left",
             fontFamily: "Bebas Neue",
-            fontSize: { xs: "27px", sm: "56px" },
+            fontSize: { xs: "36px", sm: "56px" },
             fontStyle: "normal",
             fontWeight: 400,
             lineHeight: "normal",
@@ -730,7 +730,9 @@ function HeroSection() {
           <Grid item xs={12} md={5.1}>
             <Grid
               container
-              spacing={2}
+              // spacing={2}
+              // alignContent="strech"
+              // alignItems="stretch"
               alignContent="space-between"
               style={{ height: '100%' }}
             >
@@ -768,7 +770,10 @@ function HeroSection() {
                         background: '#DDDDDD',
                         paddingTop: '5px',
                         paddingBottom: '5px',
+                        // height: '100%',
                         height: '200px',
+                        mt : { xs: '20px', sm: '0px'},
+                        mb : { xs: '0px', sm: '5px'},
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -796,7 +801,9 @@ function HeroSection() {
                         background: '#DDDDDD',
                         paddingTop: '5px',
                         paddingBottom: '5px',
+                        // height: '100%',
                         height: '200px',
+                        mt : { xs: '20px', sm: '0px'},
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
