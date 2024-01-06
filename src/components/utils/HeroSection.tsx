@@ -6,6 +6,7 @@ import Test from "./Test2";
 import component1 from "../../public/component1.png";
 import component2 from "../../public/component2.png";
 import component3 from "../../public/component3.png";
+import video_placeholder from "../../public/video_placeholder.svg";
 import bgL1 from "../../public/bgL1.png";
 
 function HeroSection() {
@@ -630,6 +631,63 @@ function HeroSection() {
       <Grid
         spacing={5}
         sx={{
+          backgroundColor: "#FFFFFF",
+          pl: "7%",
+          pr: "7%",
+          pb: "32px",
+          mb: "36px",
+          mt: "36px",
+        }}
+      >
+        <Box
+          sx={{
+            borderRadius: { xs: "24px", sm: "36px" },
+            background: "#111111",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            overflow: "hidden",
+            mt: "90px",
+            paddingTop: { xs: "20px", sm: "45px" },
+            paddingBottom: { xs: "20px", sm: "45px" },
+            paddingLeft: { xs: "0", sm: "45px" },
+            paddingRight: { xs: "0", sm: "45px" },
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              textAlign: "left",
+              fontFamily: "Bebas Neue",
+              fontSize: { xs: "32px", sm: "80px" },
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "normal",
+              mb: { xs: "55px", sm: "40px" },
+            }}
+          >
+            Algorithm in Action
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Box
+            sx={{
+              height: {xs: "400px", sm: "500px"},
+            }}
+            >
+              <img src={video_placeholder} height="100%" width="auto" alt="" />
+            </Box>
+          </Box>
+        </Box>
+      </Grid>
+      <Grid
+        spacing={5}
+        sx={{
           backgroundColor: "#fff",
           pl: "7%",
           pr: "7%",
@@ -664,7 +722,7 @@ function HeroSection() {
               }}
             >
               <svg width="100%" height="auto" viewBox="0 0 910 792">
-                <rect width="100%" height="100%" fill="#DDDDDD" rx="8" ry="8"/>
+                <rect width="100%" height="100%" fill="#DDDDDD" rx="8" ry="8" />
               </svg>
             </Box>
           </Grid>
