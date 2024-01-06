@@ -4,6 +4,9 @@ import landingBG from "../../public/landingBG.png";
 import { useInView } from "react-intersection-observer";
 import RightArrowLineIcon from "../icons/RightArrowLineIcon";
 import PhoneBGWave from "../icons/PhoneBGWave";
+import GuidedVideos from "./GuidedVideos";
+import OurStory from "./OurStory";
+import DemoVideo from "./DemoVideo";
 
 function HeroSection() {
   const { ref: imageRef, inView: imageIsVisible } = useInView({
@@ -104,6 +107,9 @@ function HeroSection() {
           </button>
         </div>
       </Box>
+      <DemoVideo/>
+      <GuidedVideos/>
+      <OurStory/>
     </>
   );
 }
