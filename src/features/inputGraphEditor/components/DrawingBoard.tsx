@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { fabric } from "fabric";
 import { Button, Buttons } from "../../../common-components/Button";
 import { NameContext } from "./DashBoard";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 interface DrawingBoardProps {
   size: number;
@@ -13,7 +15,13 @@ export default function DrawingBoard({ size, snap }: DrawingBoardProps) {
   const [listRFP, setListRFP] = useState<any[]>([]);
   const [indexRFP, setIndexRFP] = useState<number>(0);
   const [gridIsOn, setGridIsOn] = useState<boolean>(true);
-  const { resp } = useContext(NameContext);
+  // const { floorPlans } = useContext(NameContext);
+  const { floorPlans, loading, error } = useSelector(
+    (state: RootState) => state.graph,
+  );
+  useEffect(() => {
+    console.log(floorPlans);
+  }, [floorPlans]);
 
   const drawGrid = (canvas: fabric.Canvas) => {
     // Generate Grid Lines
@@ -167,23 +175,23 @@ export default function DrawingBoard({ size, snap }: DrawingBoardProps) {
       selection: true,
     });
     canRef.current = canvas;
-    drawGrid(canvas);
+    // drawGrid(canvas);
   }, []);
 
   // Automatically, receive RFPs if socket emits message on event 'load'
   useEffect(() => {
-    if (!resp) return;
+    if (!floorPlans) return;
 
     // socket.on('load', (recv: any) => {
     try {
       console.log("[loadRFP] Fetched List of RFP Graphs!");
-      setListRFP(resp);
+      setListRFP(floorPlans);
       setIndexRFP(0);
     } catch (err) {
       console.log(err);
     }
     // });
-  }, [resp]);
+  }, [floorPlans]);
 
   // Render loadRFP on every time indexRFP or listRFP changes
   useEffect(() => {
@@ -234,7 +242,7 @@ export default function DrawingBoard({ size, snap }: DrawingBoardProps) {
           </Button>
         </Buttons>
       </div>
-      {resp !== null && (
+      {floorPlans !== null && (
         <div>
           <Buttons>
             <Button className="blue btn" onClick={prevRFP}>
