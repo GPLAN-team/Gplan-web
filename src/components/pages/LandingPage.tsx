@@ -7,6 +7,9 @@ import MacPhotoSection from "../utils/MacPhotoSection";
 import InfoSection from "../utils/InfoSection";
 import GetStarted from "../utils/GetStarted";
 import Pricing from "../utils/Pricing";
+import GuidedVideos from "../utils/GuidedVideos";
+import OurStory from "../utils/OurStory";
+import DemoVideo from "../utils/DemoVideo";
 
 function LandingPage() {
   return (
@@ -17,6 +20,9 @@ function LandingPage() {
       <InfoSection/>
       {/* <GetStarted/> */}
       <Pricing/>
+      <DemoVideo/>
+      <GuidedVideos/>
+      <OurStory/>
       <Footer />
     </>
   );
