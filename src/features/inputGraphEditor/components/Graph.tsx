@@ -8,6 +8,9 @@ import axios from "axios";
 // import LocalStorageService from './services/storage/localstorageservice'
 
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { fetchGraphData } from "../../../redux/api/api.graph";
+import { AppDispatch } from "../../../redux/store";
 
 const CustomDiv = styled.div`
   .svgDualGraph {
@@ -16,6 +19,8 @@ const CustomDiv = styled.div`
     background: #eeeeee;
     border: 2px solid orange;
     margin: 2px;
+    width: 100vw;
+    height: 100vh;
   }
   .edge {
     stroke: #888;
@@ -45,7 +50,7 @@ const CustomDiv = styled.div`
     stroke: none;
   }
 `;
-
+const GRID_SIZE = 20;
 const Graph = () => {
   const RADIUS = 20;
   const svgRef = useRef<SVGSVGElement | null>(null);
@@ -60,6 +65,7 @@ const Graph = () => {
     y: number;
   } | null>(null);
   const { setResp } = useContext(NameContext);
+  const dispatch = useDispatch<AppDispatch>();
 
   function isNodePossible(
     x: number,
@@ -72,19 +78,45 @@ const Graph = () => {
     }
     return true;
   }
+  const svg = d3.select(svgRef.current);
+  const snapToGrid = (value: any) => {
+    return Math.round(value / GRID_SIZE) * GRID_SIZE;
+  };
+
+  const gridGroup = svg.append("g").attr("class", "grid-group");
+  const drawGrid = () => {
+    const svg = d3.select(svgRef.current);
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    for (let x = 0; x <= width; x += GRID_SIZE) {
+      for (let y = 0; y <= height; y += GRID_SIZE) {
+        gridGroup
+          .append("circle")
+          .attr("cx", x)
+          .attr("cy", y)
+          .attr("r", 1) // Radius of dots
+          .attr("fill", "#ccc");
+      }
+    }
+  };
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
+    drawGrid();
 
     svg.on("dblclick", (event: MouseEvent) => {
       event.preventDefault();
       const [x, y] = d3.pointer(event);
-      let check = isNodePossible(x, y, nodes);
+      const snappedX = snapToGrid(x);
+      const snappedY = snapToGrid(y);
+      let check = isNodePossible(snappedX, snappedY, nodes);
       if (check) {
         const id = nodes.length;
         const label = `${nodes.length + 1}`;
         const color = getRandomColor();
-        setNodes([...nodes, { id, x, y, label, color }]);
+        // Use snappedX and snappedY for the position of the new node
+        setNodes([...nodes, { id, x: snappedX, y: snappedY, label, color }]);
       }
     });
 
@@ -103,12 +135,15 @@ const Graph = () => {
     svg.on("mousemove", (event: MouseEvent) => {
       event.preventDefault();
       if (dragging && dragStartNode) {
-        // Update the drag line while dragging the mouse
-        const [x, y] = d3.pointer(event);
+        // Get the current mouse position and snap it to the grid
+        let [x, y] = d3.pointer(event);
+        x = snapToGrid(x);
+        y = snapToGrid(y);
+
+        // Update the drag line to snap to the grid
         drawDragLine(dragStartNode.x, dragStartNode.y, x, y);
       }
     });
-
     svg.on("mouseup", (event: MouseEvent) => {
       if (dragging && dragStartNode) {
         // Mouseup after dragging, create an edge if released on a node
@@ -225,11 +260,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/irregular", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/irregular", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "irregular" }));
   };
 
   let emitDataRectangular = () => {
@@ -240,11 +276,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/rectangular", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/rectangular", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "rectangular" }));
   };
 
   let emitDataLshape = () => {
@@ -255,11 +292,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/lshape", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/lshape", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "lshape" }));
   };
 
   let emitDataUshape = () => {
@@ -270,11 +308,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/ushape", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/ushape", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "ushape" }));
   };
 
   let emitDataTshape = () => {
@@ -285,11 +324,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/tshape", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/tshape", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "tshape" }));
   };
 
   let emitDataZshape = () => {
@@ -299,11 +339,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/zshape", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      // console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/zshape", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   // console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "zshape" }));
   };
 
   let resetBoard = () => {
@@ -320,11 +361,12 @@ const Graph = () => {
       nodes: nodes,
       edges: links,
     };
-    axios.post(BASE_ADDR + "/staircaseshape", graphData).then((response) => {
-      let resp = response.data.floorplans;
-      console.log(resp);
-      setResp(resp);
-    });
+    // axios.post(BASE_ADDR + "/staircaseshape", graphData).then((response) => {
+    //   let resp = response.data.floorplans;
+    //   console.log(resp);
+    //   setResp(resp);
+    // });
+    dispatch(fetchGraphData({ graphData, type: "staircaseshape" }));
   };
 
   return (
@@ -333,8 +375,8 @@ const Graph = () => {
         <svg
           ref={svgRef}
           className="svgDualGraph"
-          width={600}
-          height={600}
+          width={visualViewport?.width}
+          height={visualViewport?.height}
         ></svg>
         <Buttons>
           <Button
