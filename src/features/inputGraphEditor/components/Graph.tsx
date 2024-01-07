@@ -19,16 +19,16 @@ const CustomDiv = styled.div`
   }
   .edge {
     stroke: #888;
-    stroke-width: 3px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    strokeWidth: 3px;
+    strokeLinecap: round;
+    strokeLinejoin: round;
     cursor: default;
   }
   .drag-line {
     stroke: #888;
-    stroke-width: 3px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    strokeWidth: 3px;
+    strokeLinecap: round;
+    strokeLinejoin: round;
     cursor: default;
   }
   .vertex {

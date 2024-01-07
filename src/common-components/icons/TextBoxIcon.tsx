@@ -13,7 +13,7 @@ function TextBoxIcon(props: { color: String }) {
         <path
           id="Imported Path"
           fill="none"
-          stroke-width="1"
+          strokeWidth="1"
           d="M -917.00,-335.00
            C -917.00,-335.00 3930.00,-335.00 3930.00,-335.00
              3930.00,-335.00 3930.00,-337.00 3930.00,-337.00
