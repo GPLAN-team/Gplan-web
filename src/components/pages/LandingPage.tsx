@@ -10,20 +10,22 @@ import Pricing from "../utils/Pricing";
 import GuidedVideos from "../utils/GuidedVideos";
 import OurStory from "../utils/OurStory";
 import DemoVideo from "../utils/DemoVideo";
+import HomePage from "./HomePage";
 
 function LandingPage() {
   return (
     <>
-      <Navbar />
-      <HeroSection />
+      {/* <Navbar /> */}
+      {/* <HeroSection />
       <MacPhotoSection />
-      <InfoSection/>
+      <InfoSection/> */}
       {/* <GetStarted/> */}
-      <Pricing/>
+      <HomePage/>
+      {/* <Pricing/>
       <DemoVideo/>
       <GuidedVideos/>
-      <OurStory/>
-      <Footer />
+      <OurStory/> */}
+      {/* <Footer /> */}
     </>
   );
 }

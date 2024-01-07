@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 export default function OurStory() {
   return (
     <>
-    <Grid
+      <Grid
         spacing={5}
         sx={{
           backgroundColor: "#fff",
@@ -84,8 +84,8 @@ export default function OurStory() {
                         paddingTop: '5px',
                         paddingBottom: '5px',
                         height: '200px',
-                        mt : { xs: '20px', sm: '0px'},
-                        mb : { xs: '0px', sm: '5px'},
+                        mt: { xs: '20px', sm: '0px' },
+                        mb: { xs: '0px', sm: '5px' },
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -114,7 +114,7 @@ export default function OurStory() {
                         paddingTop: '5px',
                         paddingBottom: '5px',
                         height: '200px',
-                        mt : { xs: '20px', sm: '0px'},
+                        mt: { xs: '20px', sm: '0px' },
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
