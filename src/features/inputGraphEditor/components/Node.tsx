@@ -31,7 +31,7 @@ const Node: React.FC<NodeProps> = ({ title }) => {
                 sx={{
                     position: 'relative',
                     zIndex: 10,
-                    // transform: 'translate(45%, 172%)',
+                    transform: 'translate(45%, 172%)',
                     width: 125,
                     height: 125,
                     borderRadius: '50%',
