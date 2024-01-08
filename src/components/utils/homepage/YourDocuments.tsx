@@ -66,22 +66,63 @@ export default function YourDocuments() {
           mt: "36px",
         }}
       >
-        <Box></Box>
+        <Box>
+          <Box
+          sx={{
+            display: 'flex',
+          }}
+          >
+            <Typography
+              sx={{
+                // mr: "10px",
+                color: "#333333",
+                textAlign: "left",
+                fontFamily: "Poppins",
+                fontSize: "24px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "15px",
+                pt: '2px',
+                pb: '2px',
+              }}
+            >
+              Your
+            </Typography>
+            {/* Dropdown */}
+            <Typography
+              sx={{
+                // mr: "10px",
+                color: "#333333",
+                textAlign: "left",
+                fontFamily: "Poppins",
+                fontSize: "24px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "15px",
+                pt: '2px',
+                pb: '2px',
+              }}
+            >
+              Documents
+            </Typography>
+          </Box>
+          {/* search  */}
+        </Box>
         <Grid container spacing={6}>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
-          <DocCard/>
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
+          <DocCard />
         </Grid>
       </Grid>
     </>
