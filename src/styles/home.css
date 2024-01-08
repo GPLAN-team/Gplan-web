@@ -696,10 +696,33 @@
   background-repeat: no-repeat;
   transform: rotate(39deg);
 } */
-/* 
+
 .quickStartSectionOuter{
   display: flex;
-} */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
+.eachQuickStart{
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+  flex-shrink: 0;
+}
 
+.quickStartSection{
+  background-color: #1C4C82;
+  padding-left: 7%;
+  padding-bottom: 32px;
+  margin-bottom: 36px;
+}
+
+.scrollQuickStart{
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.scrollQuickStart::-webkit-scrollbar {
+  display: none;
+}
 /* --Homepage Navbar Ends-- */
