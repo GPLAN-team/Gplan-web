@@ -11,6 +11,7 @@ import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
+import HomePage from "../pages/HomePage";
 
 function Home() {
   return (
@@ -21,7 +22,8 @@ function Home() {
                 <Route path="/signup" element={<SignUpPage />} />
               </Routes>
           </Router> */}
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <HomePage/>
       {/* <Navbar/>
     <Section1/>
     <Box sx={{display:'flex', justifyContent:"center", my:'20px'}}><Typography variant="h3">Features</Typography></Box>
