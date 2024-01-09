@@ -14,17 +14,19 @@ import storage from "redux-persist/lib/storage";
 
 import yourReducer from "./features/user/user.slice";
 import graphReducer from "./features/graph/graph.slice";
+import roomReducer from "./features/room/room.slice";
 
 const rootReducer = combineReducers({
   user: yourReducer,
   graph: graphReducer,
+  roomState: roomReducer,
 });
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["user", "graph"], // specify which parts of the state to persist
+  whitelist: ["user", "graph", "room"], // specify which parts of the state to persist
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

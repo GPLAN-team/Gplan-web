@@ -1,10 +1,10 @@
 import React from "react";
 import { Chip } from "@mui/material";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../redux/store";
+import { del } from "../../../redux/features/room/room.slice";
 
-const handleDelete = () => {}
-
-const handleAdd = () => {}
 
 const ChipDiv = styled.div`
   .MuiChip-root {
@@ -25,6 +25,17 @@ const ChipDiv = styled.div`
 `;
 
 const Room = (props: any) => {
+
+  const dispatch = useDispatch<AppDispatch>()
+
+  const handleDelete = () => {
+      dispatch(del(props));
+  }
+
+  const handleAdd = () => {}
+
+  // dispatch()
+
   return (
     <ChipDiv>
       {props.isAdded && (

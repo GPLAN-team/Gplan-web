@@ -1,13 +1,23 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import Room from "./Room";
 import { CustomDiv } from "./Sidebar";
 import Dropdown from "./Dropdown";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
-let added = [{'name': 'GuestRoom', 'id': '0'},{'name': 'Kitchen', 'id': '1'},{'name': 'Master Bedroom', 'id': '2'},];
-let rem = [{'name': 'Pantry', 'id': '3'},{'name': 'Hall', 'id': '4'},{'name': 'Dining', 'id': '5'},{'name': 'Master Bedroom', 'id': '6'},];
+// let added = [{'name': 'GuestRoom', 'id': 0},{'name': 'Kitchen', 'id': 1},{'name': 'Master Bedroom', 'id': 2},];
+// let rem = [{'name': 'Pantry', 'id': 3},{'name': 'Hall', 'id': 4},{'name': 'Dining', 'id': 5},{'name': 'Master Bedroom', 'id': 6},];
 
 function CorridorSection() {
+  const rooms = useSelector(
+    (state: RootState) => state.roomState.rooms
+  )
+  
+  useEffect(() => {
+    console.log(rooms);
+  },[rooms])
+
   return (
     <CustomDiv>
       <Box className="container corridor">
@@ -54,7 +64,7 @@ function CorridorSection() {
               overflowY: "scroll",
             }}
           >
-            {added.map(item => <Room key={item.id} name={item.name} isAdded />)}
+            {rooms.map(item => item.isAdded && <Room key={item.id} name={item.name} isAdded={item.isAdded} />)}
           </Box>
 
           {/* Corridor Options */}
@@ -71,7 +81,7 @@ function CorridorSection() {
               overflowY: 'scroll'
             }}
           >
-            {rem.map(item => <Room key={item.id} name={item.name} />)}
+            {rooms.map(item => !item.isAdded && <Room key={item.id} name={item.name} isAdded={item.isAdded} />)}
           </Box>
         </Box>
       </Box>
